@@ -28,5 +28,6 @@ public interface AdminDao {
      */
 
     int updateAdmin(@Param(value = "username") String username,@Param(value = "name") String name,@Param(value = "id") Integer id);
+    Admin selectUsername(@Param(value = "username")String username);
 
 }

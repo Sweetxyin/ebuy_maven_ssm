@@ -56,14 +56,16 @@ public class AdminService {
      * @return flash表示修改失败， true表示修改成功
      */
 
-    public boolean updateAdmin(String username,String name,Integer id){
-        boolean status=false;
-        if (adminDao.updateAdmin(username,name,id)==1){
+    public boolean updateAdmin(String username, String name,Integer id){
+        Boolean status=false;//默认编辑失败
+        if(adminDao.updateAdmin(username,name,id)>0){
             status=true;
-
-        }else {
-            status=false;
         }
-        return false;
+        return status;
+    }
+
+    public Admin selectUsername(String username){
+        Admin admin=adminDao.selectUsername(username);
+        return admin;
     }
 }

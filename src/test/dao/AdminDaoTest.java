@@ -9,7 +9,6 @@ import org.junit.Test;
 import javax.annotation.Resource;
 
 public class AdminDaoTest extends SpringJunitTest {
-
     @Resource
     private AdminDao adminDao;
 
@@ -25,28 +24,19 @@ public class AdminDaoTest extends SpringJunitTest {
         Admin admin2=adminDao.login("user",  SHA.getResult("12345611"));
         System.out.println(admin2);
     }
-    @Test
-    public void testUpdatePassword() {
-        /*//打开数据库，耗费资源巨大，建议项目中只打开一次
-        SqlSessionFactory sessionFactory = SqlSessionFactoryUtil.getSqlSessionFactory();
-        //创建SqlSession，SqlSession类似于JDBC中的Connection，
-        SqlSession session = sessionFactory.openSession();
-        try {
-            //获取mapper接口代理对象
-            AdminDao adminDao = session.getMapper(AdminDao.class);*/
-            System.out.println(adminDao.updatePassword("111", 2));
-       /*     session.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }*/
-    }
-    @Test
-    public  void  testupdateAdmin(){
 
-        System.out.println(adminDao.updateAdmin("user","易烊千玺",1));
+    @Test
+    public void testUpdatePassword(){
+        System.out.println(adminDao.updatePassword("555",2));
+    }
+
+    @Test
+    public void UpdateAdmin(){System.out.println(adminDao.updateAdmin("lzq","小红",2));
+    }
+
+    @Test
+    public void testselectUsername(){
+        Admin admin=adminDao.selectUsername("user");
+        System.out.println(admin);
     }
 }

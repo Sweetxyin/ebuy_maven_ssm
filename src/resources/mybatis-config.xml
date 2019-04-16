@@ -3,15 +3,15 @@
 <configuration>
 
     <!-- 实体类,简称 -设置别名 -->
-<!--    <typeAliases>
-        <typeAlias alias="Admin" type="com.lcvc.ebuytest.model.Admin" />
-        <typeAlias alias="ProductType" type="com.lcvc.ebuytest.model.ProductType" />
-    </typeAliases>-->
+    <!--    <typeAliases>
+            <typeAlias alias="Admin" type="com.lcvc.ebuytest.model.Admin" />
+            <typeAlias alias="ProductType" type="com.lcvc.ebuytest.model.ProductType" />
+        </typeAliases>-->
 
     <mappers>
-         <!-- 注册userMapper.xml文件， 
-         userMapper.xml位于me.gacl.mapping这个包下，所以resource写成me/gacl/mapping/userMapper.xml-->
+        <!-- 注册userMapper.xml文件，
+        userMapper.xml位于me.gacl.mapping这个包下，所以resource写成me/gacl/mapping/userMapper.xml-->
         <mapper resource="mapper/AdminMapper.xml"/>
-     </mappers>
-    
+    </mappers>
+
 </configuration>
