@@ -45,7 +45,7 @@
         </div>
         <ul class="menuson">
             <li><cite></cite><a href="<%=basePath%>backstage/admin/toUpdatePassword" target="rightFrame">修改密码</a><i></i></li>
-            <li><cite></cite><a href="<%=basePath%>jsp/backstage/admin/adminupdate.jsp" target="rightFrame">修改基本信息</a><i></i></li>
+            <li><cite></cite><a href="<%=basePath%>backstage/admin/toUpdateAdmin" target="rightFrame">修改基本信息</a><i></i></li>
         </ul>
     </dd>
 

@@ -33,7 +33,18 @@ public class AdminController {
 			}
 		}else{//如果原密码错误
 			request.setAttribute("myMessage", "密码修改失败：原密码不正确");
-		}		
+		}
 		return "/jsp/backstage/admin/passwordupdate.jsp";
 	}
+	@RequestMapping(value = "/backstage/admin/toUpdateAdmin", method = RequestMethod.GET)
+	public String toUpdateAdmin(){
+		return "/jsp/backstage/admin/adminupdate.jsp";
+	}
+	@RequestMapping(value = "/backstage/admin/doUpdateAdmin", method = RequestMethod.POST)
+	public String doUpdateAdmin(String username,String name,HttpSession session){
+		Admin admin=(Admin)session.getAttribute("admin");
+		adminService.updateAdmin(username,name,admin.getId());
+		return "/jsp/backstage/admin/adminupdate.jsp";
+	}
+
 }

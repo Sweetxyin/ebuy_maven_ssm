@@ -44,4 +44,9 @@ public class AdminDaoTest extends SpringJunitTest {
             }
         }*/
     }
+    @Test
+    public  void  testupdateAdmin(){
+
+        System.out.println(adminDao.updateAdmin("user","易烊千玺",1));
+    }
 }

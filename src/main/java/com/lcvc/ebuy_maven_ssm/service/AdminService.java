@@ -46,4 +46,24 @@ public class AdminService {
         }
         return status;
     }
+    /**
+     * 修改账户的基本信息
+     * 说明：
+     * 1.修改后的账户名不能与其他账户的账户名重名
+     * @param username
+     * @param name
+     * @param id
+     * @return flash表示修改失败， true表示修改成功
+     */
+
+    public boolean updateAdmin(String username,String name,Integer id){
+        boolean status=false;
+        if (adminDao.updateAdmin(username,name,id)==1){
+            status=true;
+
+        }else {
+            status=false;
+        }
+        return false;
+    }
 }

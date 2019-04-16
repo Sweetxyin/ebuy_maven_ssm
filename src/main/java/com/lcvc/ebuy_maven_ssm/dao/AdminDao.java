@@ -19,4 +19,14 @@ public interface AdminDao {
 	 * @return 更改了多少条记录
 	 */
     int updatePassword(@Param(value = "password") String newpass, @Param(value = "id") Integer id);
+    /**
+     *修改用户的基本信息
+     * @param username 账户名
+     * @param name 姓名
+     * @param id 主键
+     * @return 更改了多少条记录
+     */
+
+    int updateAdmin(@Param(value = "username") String username,@Param(value = "name") String name,@Param(value = "id") Integer id);
+
 }
