@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class AdminService {
@@ -46,4 +47,35 @@ public class AdminService {
         }
         return status;
     }
+
+    /**
+     * 修改账户名和网名
+     * 说明：
+     * 1、修改后的账户不能与其他账户的账户名重名
+     * @param username 账户名
+     * @param name 网名
+     * @param id
+     * @return flash表示修改失败， true表示修改成功
+     */
+    public boolean updateAdmin(String username, String name,Integer id){
+        Boolean status=false;//默认编辑失败
+        if (adminDao.existsAdmin(username,id)==0){
+            if (adminDao.updateAdmin(username,name,id)==1){
+                status=true;
+
+            }else {
+                status=false;
+            }
+        }
+            return false;
+        }
+
+    /**
+     * 返回所有的管理账户集合
+     * @return 以list方式返回
+     */
+    public List<Admin> getAdminList(){
+        return adminDao.getAdminList();
+    }
+
 }

@@ -36,4 +36,22 @@ public class AdminController {
 		}		
 		return "/jsp/backstage/admin/passwordupdate.jsp";
 	}
+	//跳转到修改信息页面
+	@RequestMapping(value = "/backstage/admin/doUpdateAdmin", method = RequestMethod.GET)
+	public String toUpdateAdmin(){
+		return "/jsp/backstage/admin/adminupdate.jsp";
+	}
+	//执行修改管理账户的基本信息
+	@RequestMapping(value = "/backstage/admin/doUpdateAdmin", method = RequestMethod.POST)
+	public String doUpdateAdmin(String username,String name,HttpSession session,HttpServletRequest request){
+		Admin admin=(Admin)session.getAttribute("admin");
+		if (adminService.updateAdmin(username,name,admin.getId())){
+			admin.setUsername(username);
+			admin.setName(name);
+		}/*else {
+			request.setAttribute("msg","用户名重复，请重新输入");
+
+		}*/
+		return "/jsp/backstage/admin/adminupdate.jsp";
+	}
 }

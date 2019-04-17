@@ -27,21 +27,17 @@ public class AdminDaoTest extends SpringJunitTest {
     }
     @Test
     public void testUpdatePassword() {
-        /*//打开数据库，耗费资源巨大，建议项目中只打开一次
-        SqlSessionFactory sessionFactory = SqlSessionFactoryUtil.getSqlSessionFactory();
-        //创建SqlSession，SqlSession类似于JDBC中的Connection，
-        SqlSession session = sessionFactory.openSession();
-        try {
-            //获取mapper接口代理对象
-            AdminDao adminDao = session.getMapper(AdminDao.class);*/
+
             System.out.println(adminDao.updatePassword("111", 2));
-       /*     session.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }*/
+    }
+    @Test
+    public void UpdateAdmin(){
+        System.out.println(adminDao.updateAdmin("user","樱桃小子",1));
+    }
+
+    @Test
+    public void testExistsAdmin(){
+        System.out.println(adminDao.existsAdmin("user",1));
+
     }
 }

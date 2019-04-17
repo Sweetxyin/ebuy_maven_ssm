@@ -12,4 +12,14 @@
 	<update id="updatePassword">
 		update admin set password=#{password} where id=#{id}
 	</update>
+	<update id="updateAdmin">
+		update admin set username=#{username},name=#{name} where id=#{id}
+	</update>
+
+	<select id="existsAdmin" resultType="int">
+		select count(id) from admin  WHERE username=#{username} and id=#{id}
+	</select>
+	<select id="getAdminList" resultType="com.lcvc.ebuy_maven_ssm.model.Admin">
+		select * from admin order by id asc
+	</select>
 </mapper>
