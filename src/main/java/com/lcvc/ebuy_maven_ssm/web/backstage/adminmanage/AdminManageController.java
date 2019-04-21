@@ -17,7 +17,7 @@ public class AdminManageController {
 	@RequestMapping(value = "/backstage/adminmanage/toManageAdmin", method = RequestMethod.GET)
 	public String toManageAdmin(HttpServletRequest request) {
 		request.setAttribute("list",adminService.getAdminList());
-		return "/jsp/backstage/admin/passwordupdate.jsp";
+		return "/jsp/backstage/adminmanage/adminmanage.jsp";
 	}
 
 }

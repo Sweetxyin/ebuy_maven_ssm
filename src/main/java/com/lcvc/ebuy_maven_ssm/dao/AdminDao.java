@@ -22,6 +22,7 @@ public interface AdminDao {
 	 */
     int updatePassword(@Param(value = "password") String newpass, @Param(value = "id") Integer id);
     /**
+<<<<<<< HEAD
      * 修改账户名
      * @param username 用户名
      * @param name 网名
@@ -44,4 +45,5 @@ public interface AdminDao {
      * @return 以list方式返回
      */
     List<Admin> getAdminList();
+
 }

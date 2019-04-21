@@ -33,9 +33,10 @@ public class AdminController {
 			}
 		}else{//如果原密码错误
 			request.setAttribute("myMessage", "密码修改失败：原密码不正确");
-		}		
+		}
 		return "/jsp/backstage/admin/passwordupdate.jsp";
 	}
+
 	//跳转到修改信息页面
 	@RequestMapping(value = "/backstage/admin/doUpdateAdmin", method = RequestMethod.GET)
 	public String toUpdateAdmin(){
@@ -46,12 +47,18 @@ public class AdminController {
 	public String doUpdateAdmin(String username,String name,HttpSession session,HttpServletRequest request){
 		Admin admin=(Admin)session.getAttribute("admin");
 		if (adminService.updateAdmin(username,name,admin.getId())){
+			session.setAttribute("admin",adminService.login(username,admin.getPassword()));
 			admin.setUsername(username);
 			admin.setName(name);
 		}/*else {
-			request.setAttribute("msg","用户名重复，请重新输入");
+			request.setAttribute("msg","用户名重复，请重新输入")
 
 		}*/
 		return "/jsp/backstage/admin/adminupdate.jsp";
 	}
-}
+
+
+	}
+
+
+

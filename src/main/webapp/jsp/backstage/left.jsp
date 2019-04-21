@@ -54,7 +54,7 @@
             <span><img src="images/leftico01.png"/></span>管理员模块
         </div>
         <ul class="menuson">
-            <li><cite></cite><a href="<%=basePath %>admin/adminmanage/toManageAdmin"
+            <li><cite></cite><a href="<%=basePath %>/backstage/adminmanage/toManageAdmin"
                                 target="rightFrame">管理员管理</a><i></i></li>
         </ul>
     </dd>

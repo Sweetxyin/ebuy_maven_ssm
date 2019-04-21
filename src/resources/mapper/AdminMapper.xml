@@ -4,14 +4,15 @@
 例如namespace="com.cn.mybatis.test1.dao.userMapper"就是com.cn.mybatis.test1.dao(包名)+userMapper(userMapper.xml文件去除后缀)
  -->
 <mapper namespace="com.lcvc.ebuy_maven_ssm.dao.AdminDao">
-    <!-- 根据账户名和密码，查询得到一个admin对象 -->
+	<!-- 根据账户名和密码，查询得到一个admin对象 -->
 	<select id="login" resultType="com.lcvc.ebuy_maven_ssm.model.Admin">
-		select * from admin where
-		username=#{username} and password=#{password}
+		select * from admin where username=#{username} and password=#{password}
 	</select>
+
 	<update id="updatePassword">
 		update admin set password=#{password} where id=#{id}
 	</update>
+
 	<update id="updateAdmin">
 		update admin set username=#{username},name=#{name} where id=#{id}
 	</update>
