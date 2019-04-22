@@ -53,5 +53,11 @@ public class AdminDaoTest extends SpringJunitTest {
         }
     }
 
+    @Test
+    public void testDeleteAdmin(){
+        System.out.println(adminDao.deleteAdmin(67));
+        System.out.println(adminDao.deleteAdmin(0));
+    }
+
 
 }

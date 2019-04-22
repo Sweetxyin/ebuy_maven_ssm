@@ -30,7 +30,16 @@ $(document).ready(function(){
   $(".tip").fadeOut(100);
 });
 
+    $("a[name='deleteAdmin']").click(function () {
+        var url=$(this).attr("href");
+        if (window.confirm("确认删除该账户吗？")){
+            return true;//执行链接跳转
+        }else {
+            return false;//不执行链接的跳转
+        }
+    });
 });
+
 </script>
 
 
@@ -83,7 +92,7 @@ $(document).ready(function(){
         <td>${admin.username}</td>
         <td>${admin.name}</td>
         <td>${admin.createTime}</td>
-        <td><a href="#" class="tablelink">查看</a>     <a href="#" class="tablelink"> 删除</a></td>
+        <td><a href="#" class="tablelink">查看</a>  <a name="deleteAdmin" href="<%=basePath%>backstage/adminmanage/doDeleteAdmin?id=${admin.id}" class="tablelink"> 删除</a></td>
         </tr>
         </c:forEach>
 

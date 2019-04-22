@@ -20,4 +20,11 @@ public class AdminManageController {
 		return "/jsp/backstage/adminmanage/adminmanage.jsp";
 	}
 
+	//执行删除管理员操作
+	@RequestMapping(value = "/backstage/adminmanage/doDeleteAdmin", method = RequestMethod.GET)
+	public String doDeleteAdmin(HttpServletRequest request,Integer id) {
+		adminService.deleteAdmin(id);
+		request.setAttribute("list",adminService.getAdminList());
+		return "/jsp/backstage/adminmanage/adminmanage.jsp";
+	}
 }

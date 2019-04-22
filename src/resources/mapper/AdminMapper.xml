@@ -23,4 +23,7 @@
 	<select id="getAdminList" resultType="com.lcvc.ebuy_maven_ssm.model.Admin">
 		select * from admin order by id asc
 	</select>
+	<delete id="deleteAdmin" >
+		delete from admin where id=#{id}
+	</delete>
 </mapper>

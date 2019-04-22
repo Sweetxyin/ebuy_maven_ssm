@@ -46,4 +46,10 @@ public interface AdminDao {
      */
     List<Admin> getAdminList();
 
+    /**
+
+     * @param id 主键
+     * @return 返回删除的个数
+     */
+    int deleteAdmin(Integer id);
 }

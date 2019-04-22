@@ -79,4 +79,20 @@ public class AdminService {
         return adminDao.getAdminList();
     }
 
+
+    /**
+     * 删除管理员
+     * @param id
+     * @return flash表示删除失败， true表示删除成功
+     */
+    public boolean deleteAdmin(Integer id){
+        Boolean status=false;//默认删除失败
+        if(id!=null){
+            int n=adminDao.deleteAdmin(id);
+            if (n==1){
+                status=true;
+            }
+        }
+        return status;
+    }
 }
