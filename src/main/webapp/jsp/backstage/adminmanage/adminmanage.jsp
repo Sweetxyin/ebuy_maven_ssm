@@ -1,5 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn"  uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -32,7 +34,8 @@ $(document).ready(function(){
 
     $("a[name='deleteAdmin']").click(function () {
         var url=$(this).attr("href");
-        if (window.confirm("确认删除该账户吗？")){
+        var username=$(this).attr("id")
+        if (window.confirm("确认删除该账户("+username+")吗？")){
             return true;//执行链接跳转
         }else {
             return false;//不执行链接的跳转
@@ -91,8 +94,8 @@ $(document).ready(function(){
         <td><input name="" type="checkbox" value="" /></td>
         <td>${admin.username}</td>
         <td>${admin.name}</td>
-        <td>${admin.createTime}</td>
-        <td><a href="#" class="tablelink">查看</a>  <a name="deleteAdmin" href="<%=basePath%>backstage/adminmanage/doDeleteAdmin?id=${admin.id}" class="tablelink"> 删除</a></td>
+        <td><fmt:formatDate value="${admin.createTime}" pattern="yyyy年MM月dd日 HH:mm" /></td>
+        <td><a href="#" class="tablelink">查看</a>  <a id="${admin.username}" name="deleteAdmin" href="<%=basePath%>backstage/adminmanage/doDeleteAdmin?id=${admin.id}" class="tablelink"> 删除</a></td>
         </tr>
         </c:forEach>
 
@@ -101,7 +104,7 @@ $(document).ready(function(){
     
    
     <div class="pagin">
-    	<div class="message">共<i class="blue">1256</i>条记录<%--，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页--%></div>
+    	<div class="message">共<i class="blue">${fn:length(list)}</i>条记录<%--，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页--%></div>
 
     </div>
     

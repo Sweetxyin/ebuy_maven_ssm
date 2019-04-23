@@ -36,7 +36,7 @@ public interface AdminDao {
      * 查找在数据库中和指定用户名重名的个数
      * @param username 用户名
      * @param id 主键
-     * @return 返回重名的个数
+     * @return 返回重名的个数 0表示不重名
      */
     int existsAdmin(@Param(value = "username")String username,@Param(value = "id")Integer id);
 

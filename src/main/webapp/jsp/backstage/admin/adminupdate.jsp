@@ -10,7 +10,7 @@
     <title>无标题文档</title>
     <link href="<%=basePath%>jsp/backstage/css/style.css" rel="stylesheet" type="text/css" />
     <script>
-        var message='${requestScope.msg}';
+        var message='${requestScope.myMessage}';
         //如果没有收到服务端发来的信息，那么就不弹出对话框
         if(message!=''){
             alert(message);

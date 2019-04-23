@@ -18,7 +18,7 @@
 	</update>
 
 	<select id="existsAdmin" resultType="int">
-		select count(id) from admin  WHERE username=#{username} and id=#{id}
+		select count(id) from admin  WHERE username=#{username} and id!=#{id}
 	</select>
 	<select id="getAdminList" resultType="com.lcvc.ebuy_maven_ssm.model.Admin">
 		select * from admin order by id asc

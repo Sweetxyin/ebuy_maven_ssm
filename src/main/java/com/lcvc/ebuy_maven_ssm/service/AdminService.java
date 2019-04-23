@@ -4,6 +4,7 @@ import com.lcvc.ebuy_maven_ssm.dao.AdminDao;
 import com.lcvc.ebuy_maven_ssm.dao.SqlSessionFactoryUtil;
 import com.lcvc.ebuy_maven_ssm.model.Admin;
 import com.lcvc.ebuy_maven_ssm.util.SHA;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.stereotype.Service;
@@ -82,17 +83,34 @@ public class AdminService {
 
     /**
      * 删除管理员
-     * @param id
+     * @param id 被删除的账户id
+     * @param adminId 执行删除的管理账户
      * @return flash表示删除失败， true表示删除成功
      */
-    public boolean deleteAdmin(Integer id){
+    public boolean deleteAdmin(Integer id,Integer adminId){
         Boolean status=false;//默认删除失败
-        if(id!=null){
-            int n=adminDao.deleteAdmin(id);
-            if (n==1){
-                status=true;
+        if (id!=null&&adminId!=null){
+            if(adminId!=id.intValue()){//如果不是自己删自己
+                int n=adminDao.deleteAdmin(id);
+                if (n==1){
+                    status=true;
+                }
             }
         }
+
         return status;
+    }
+    /**
+     * 查找在数据库中和指定用户名重名的个数
+     * @param username 用户名
+     * @param id 主键
+     * @return ture表示存在重名账户，false表示不存在
+     */
+    public boolean existsAdmin(String username,Integer id){
+        if (adminDao.existsAdmin(username,id)==0){
+            return false;
+        }else{
+            return true;
+        }
     }
 }
