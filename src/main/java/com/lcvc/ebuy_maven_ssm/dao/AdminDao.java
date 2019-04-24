@@ -22,7 +22,6 @@ public interface AdminDao {
 	 */
     int updatePassword(@Param(value = "password") String newpass, @Param(value = "id") Integer id);
     /**
-<<<<<<< HEAD
      * 修改账户名
      * @param username 用户名
      * @param name 网名
@@ -52,4 +51,11 @@ public interface AdminDao {
      * @return 返回删除的个数
      */
     int deleteAdmin(Integer id);
+
+    /**
+     * 保存指定账户进数据库
+     * @return 返回添加了多少条记录
+     */
+    //int saveAdmin(@Param(value = "username")String username, @Param(value = "password") String password,@Param(value = "name")String name,@Param(value = "createTime") String createTime);
+    int saveAdmin(Admin admin);
 }

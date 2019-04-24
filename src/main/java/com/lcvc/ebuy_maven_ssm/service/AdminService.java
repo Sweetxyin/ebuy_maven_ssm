@@ -113,4 +113,18 @@ public class AdminService {
             return true;
         }
     }
+
+    /**
+     * 添加管理员账户
+     * @return true表示添加成功，false表示添加失败
+     */
+    public boolean saveAdmin(Admin admin){
+        Boolean status=false;//默认添加失败
+        if (adminDao.saveAdmin(admin)==1){
+                status=true;
+            }else {
+                status=false;
+            }
+        return status;
+    }
 }

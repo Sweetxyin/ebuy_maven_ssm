@@ -7,6 +7,7 @@ import com.lcvc.ebuy_maven_ssm.util.SHA;
 import org.junit.Test;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 public class AdminDaoTest extends SpringJunitTest {
@@ -58,6 +59,15 @@ public class AdminDaoTest extends SpringJunitTest {
         System.out.println(adminDao.deleteAdmin(67));
         System.out.println(adminDao.deleteAdmin(0));
     }
-
+    @Test
+    public void testSaveAdmin(){
+      //System.out.println(adminDao.saveAdmin( "hhhhhh","123","ccccc","2019:4.24"));
+      Admin admin=new Admin();
+        admin.setUsername("xyyin");
+        admin.setPassword("123");
+        admin.setName("蜡笔小新");
+        admin.setCreateTime(new Date());
+        adminDao.saveAdmin(admin);
+    }
 
 }

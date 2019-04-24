@@ -26,4 +26,7 @@
 	<delete id="deleteAdmin" >
 		delete from admin where id=#{id}
 	</delete>
+	<insert id="saveAdmin">
+	insert into admin (id,username,password,name,createTime) VALUES(null,#{username},#{password},#{name},#{createTime})
+	</insert>
 </mapper>
