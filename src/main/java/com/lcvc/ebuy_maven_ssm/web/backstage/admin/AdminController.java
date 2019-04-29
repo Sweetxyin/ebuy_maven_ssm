@@ -60,7 +60,6 @@ public class AdminController {
 				//session.setAttribute("admin",adminService.login(username,admin.getPassword()));
 				admin.setUsername(username);
 				admin.setName(name);
-
 			}
 			request.setAttribute("myMessage", "基本信息修改成功");
 		}

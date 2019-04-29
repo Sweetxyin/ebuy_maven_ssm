@@ -145,24 +145,13 @@ public class AdminService {
 
     /**
      * 修改管理员信息
-     * 说明：
-     * 1、修改后的账户不能与其他账户的账户名重名
-     * @param username 账户名
-     * @param name 网名
-     * @param id
      * @return flash表示修改失败， true表示修改成功
      */
-   /* public boolean amendAdmin(String username, String name,Integer id){
-        Boolean status=false;//默认编辑失败
-        if (adminDao.existsAdmin(username,id)==0){
-            if (adminDao.amendAdmin(username,name,id)==1){
-                status=true;
-            }else {
-                status=false;
-            }
-        }
-        return false;
-    }*/
+
+    public Admin selectUsername(String username) {
+        Admin admin = adminDao.selectUsername(username);
+        return admin;
+    }
 
      public Admin getAdmin(Integer id){
          Admin admin=null;

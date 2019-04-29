@@ -67,14 +67,7 @@ public interface AdminDao {
     //int saveAdmin(@Param(value = "username")String username, @Param(value = "password") String password,@Param(value = "name")String name,@Param(value = "createTime") String createTime);
     int saveAdmin(Admin admin);
 
-   /* *//**
-     * 修改管理员信息
-     * @param username 用户名
-     * @param name 网名
-     * @param id 主键
-     * @return
-     *//*
-    int amendAdmin(@Param(value = "username")String username,@Param(value = "name")String name,@Param(value = "id")Integer id);*/
+    Admin selectUsername(@Param(value = "username")String username);;
 
     /**
      * 根据标识符获取对应的管理账户对象

@@ -38,4 +38,7 @@
 	<select id="getAdmin" resultType="com.lcvc.ebuy_maven_ssm.model.Admin">
 		select * from admin where id=#{id}
 	</select>
+	<select id="selectUsername" resultType="com.lcvc.ebuy_maven_ssm.model.Admin">
+		select * from admin  WHERE username=#{username}
+	</select>
 </mapper>
