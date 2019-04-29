@@ -69,5 +69,9 @@ public class AdminDaoTest extends SpringJunitTest {
         admin.setCreateTime(new Date());
         adminDao.saveAdmin(admin);
     }
-
+    @Test
+   public void testGetAdmin(){
+        System.out.println(adminDao.getAdmin(2));
+       System.out.println(adminDao.getAdmin(100));
+   }
 }

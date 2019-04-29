@@ -39,27 +39,56 @@ public class AdminManageController {
 	}
 	//执行添加管理员操作
 	@RequestMapping(value = "/backstage/adminmanage/doAddAdmin", method = RequestMethod.POST)
-	public String doAddAdmin(HttpServletRequest request, HttpSession session,Integer id,String username,String password,String name) {
-		Admin admin=(Admin)session.getAttribute("admin");
-			if (username.equals("")){
+	public String doAddAdmin(HttpServletRequest request, HttpSession session,Admin admin) {
+		//Admin admin=(Admin)session.getAttribute("admin");
+		admin.setUsername(admin.getUsername().trim());
+		admin.setPassword(admin.getPassword().trim());
+		admin.setName(admin.getName().trim());
+			if (admin.getUsername().length()==0){
 				request.setAttribute("myMessage", "添加管理员账户失败：账户名不能为空");
-			}else if (password.equals("")){
+			}else if (admin.getPassword().length()==0){
 				request.setAttribute("myMessage", "添加管理员账户失败：密码不能为空");
-			}else if (name.equals("")){
+			}else if (admin.getName().length()==0){
 				request.setAttribute("myMessage", "添加管理员账户失败：网名不能为空");
-			}else if (adminService.existsAdmin(username,admin.getId())==true) {
-				request.setAttribute("myMessage", "账户名重名");
+			}else if (adminService.existsUsername(admin.getUsername())) {
+				request.setAttribute("myMessage", "账户创建失败：账户名已存在，请选择其他的账户名！");
 			}else {
-				if (adminService.saveAdmin(admin)){
-					admin.setId(id);
-					admin.setUsername(username);
+				/*	admin.setUsername(username);
 					admin.setPassword(password);
 					admin.setName(name);
-					admin.setCreateTime(new Date());
+					admin.setCreateTime(new Date());*/
 					adminService.saveAdmin(admin);
-				}
+
 				request.setAttribute("myMessage", "添加管理员账户成功！");
 			}
 		return "/jsp/backstage/adminmanage/adminadd.jsp";
+	}
+
+	//跳转到管理员修改页面
+	@RequestMapping(value = "/backstage/adminmanage/toUpdateAdmin", method = RequestMethod.GET)
+	public String toUpdateAdmin(HttpServletRequest request,Integer id) {
+         request.setAttribute("admin",adminService.getAdmin(id));
+		return "/jsp/backstage/adminmanage/adminupdate.jsp";
+	}
+	//执行修改管理账户的基本信息
+	@RequestMapping(value = "/backstage/adminmanage/doUpdateAdmin", method = RequestMethod.POST)
+	public String doUpdateAdmin(String username,String name,HttpSession session,HttpServletRequest request,Admin admin){
+		//Admin admin=(Admin)session.getAttribute("admin");
+		if (username.equals("")){
+			request.setAttribute("myMessage","账户名不能为空");
+		}else if (name.equals("")){
+			request.setAttribute("myMessage","网名不能为空");
+		}else if (adminService.existsAdmin(username,admin.getId())==true){
+			request.setAttribute("myMessage","账户名重名");
+		}else {
+			if (adminService.updateAdmin(username,name,admin.getId())){
+				//session.setAttribute("admin",adminService.login(username,admin.getPassword()));
+				admin.setUsername(username);
+				admin.setName(name);
+
+			}
+			request.setAttribute("myMessage", "基本信息修改成功");
+		}
+		return "/jsp/backstage/adminmanage/adminupdate.jsp";
 	}
 }

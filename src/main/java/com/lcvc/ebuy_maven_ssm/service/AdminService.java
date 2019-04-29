@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -64,7 +65,6 @@ public class AdminService {
         if (adminDao.existsAdmin(username,id)==0){
             if (adminDao.updateAdmin(username,name,id)==1){
                 status=true;
-
             }else {
                 status=false;
             }
@@ -101,7 +101,7 @@ public class AdminService {
         return status;
     }
     /**
-     * 查找在数据库中和指定用户名重名的个数
+     * 查找在数据库中和指定用户名重名的个数（用于账户编辑）
      * @param username 用户名
      * @param id 主键
      * @return ture表示存在重名账户，false表示不存在
@@ -115,16 +115,61 @@ public class AdminService {
     }
 
     /**
-     * 添加管理员账户
-     * @return true表示添加成功，false表示添加失败
+     *判断账户名是否存在（用于创建新账户的时候）
+     * @param username
+     * @return true表示存在，false表示存在
      */
+    public boolean existsUsername(String username){
+        if (adminDao.existsUsername(username)==0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    /**
+     * 将账户信息存入数据库
+     * @param admin
+     * @return true表示保存成功，false表示保存失败
+     */
+
     public boolean saveAdmin(Admin admin){
         Boolean status=false;//默认添加失败
-        if (adminDao.saveAdmin(admin)==1){
+        admin.setPassword(SHA.getResult(admin.getPassword()));
+        admin.setCreateTime(new Date());
+        int i=adminDao.saveAdmin(admin);
+        if (i>0){
+                status=true;
+            }
+        return status;
+    }
+
+    /**
+     * 修改管理员信息
+     * 说明：
+     * 1、修改后的账户不能与其他账户的账户名重名
+     * @param username 账户名
+     * @param name 网名
+     * @param id
+     * @return flash表示修改失败， true表示修改成功
+     */
+   /* public boolean amendAdmin(String username, String name,Integer id){
+        Boolean status=false;//默认编辑失败
+        if (adminDao.existsAdmin(username,id)==0){
+            if (adminDao.amendAdmin(username,name,id)==1){
                 status=true;
             }else {
                 status=false;
             }
-        return status;
-    }
+        }
+        return false;
+    }*/
+
+     public Admin getAdmin(Integer id){
+         Admin admin=null;
+         if (id!=null){
+             admin=adminDao.getAdmin(id);
+         }
+             return admin;
+         }
+
 }

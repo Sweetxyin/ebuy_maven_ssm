@@ -97,7 +97,8 @@ $(document).ready(function(){
         <td>${admin.username}</td>
         <td>${admin.name}</td>
         <td><fmt:formatDate value="${admin.createTime}" pattern="yyyy年MM月dd日 HH:mm" /></td>
-        <td><a href="#" class="tablelink">查看</a>  <a id="${admin.username}" name="deleteAdmin" href="<%=basePath%>backstage/adminmanage/doDeleteAdmin?id=${admin.id}" class="tablelink"> 删除</a></td>
+        <td><a href="<%=basePath%>backstage/adminmanage/toUpdateAdmin?id=${admin.id}" class="tablelink">修改</a>
+            <a id="${admin.username}" name="deleteAdmin" href="<%=basePath%>backstage/adminmanage/doDeleteAdmin?id=${admin.id}" class="tablelink"> 删除</a></td>
         </tr>
         </c:forEach>
 
