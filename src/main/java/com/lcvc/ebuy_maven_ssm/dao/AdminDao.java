@@ -1,6 +1,7 @@
 package com.lcvc.ebuy_maven_ssm.dao;
 
 import com.lcvc.ebuy_maven_ssm.model.Admin;
+import com.lcvc.ebuy_maven_ssm.model.Product;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -67,12 +68,12 @@ public interface AdminDao {
     //int saveAdmin(@Param(value = "username")String username, @Param(value = "password") String password,@Param(value = "name")String name,@Param(value = "createTime") String createTime);
     int saveAdmin(Admin admin);
 
-    Admin selectUsername(@Param(value = "username")String username);;
-
     /**
      * 根据标识符获取对应的管理账户对象
      * @param id
      * @return
      */
     Admin getAdmin(int id);
+
+
 }

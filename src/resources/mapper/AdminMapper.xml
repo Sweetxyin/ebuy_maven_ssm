@@ -32,13 +32,8 @@
 	<insert id="saveAdmin">
 	insert into admin (id,username,password,name,createTime) VALUES(null,#{username},#{password},#{name},#{createTime})
 	</insert>
-	<update id="amendAdmin">
-		update admin set username=#{username},name=#{name} where id=#{id}
-	</update>
 	<select id="getAdmin" resultType="com.lcvc.ebuy_maven_ssm.model.Admin">
 		select * from admin where id=#{id}
 	</select>
-	<select id="selectUsername" resultType="com.lcvc.ebuy_maven_ssm.model.Admin">
-		select * from admin  WHERE username=#{username}
-	</select>
+
 </mapper>

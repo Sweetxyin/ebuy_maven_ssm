@@ -3,6 +3,7 @@ package com.lcvc.ebuy_maven_ssm.service;
 import com.lcvc.ebuy_maven_ssm.dao.AdminDao;
 import com.lcvc.ebuy_maven_ssm.dao.SqlSessionFactoryUtil;
 import com.lcvc.ebuy_maven_ssm.model.Admin;
+import com.lcvc.ebuy_maven_ssm.model.Product;
 import com.lcvc.ebuy_maven_ssm.util.SHA;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
@@ -143,15 +144,6 @@ public class AdminService {
         return status;
     }
 
-    /**
-     * 修改管理员信息
-     * @return flash表示修改失败， true表示修改成功
-     */
-
-    public Admin selectUsername(String username) {
-        Admin admin = adminDao.selectUsername(username);
-        return admin;
-    }
 
      public Admin getAdmin(Integer id){
          Admin admin=null;
@@ -160,5 +152,6 @@ public class AdminService {
          }
              return admin;
          }
+
 
 }

@@ -34,6 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="formtitle"><span>编辑管理员账户</span></div>
     <form action="<%=basePath%>/backstage/adminmanage/doUpdateAdmin" method="post">
     <ul class="forminfo">
+        <li><label></label><input name="id" type="hidden" class="dfinput" value="${requestScope.admin.id}"/><i></i></li>
     <li><label>账户名</label><input name="username" type="text" class="dfinput" value="${requestScope.admin.username}"/><i></i></li>
     <li><label>网名</label><input name="name" type="text" class="dfinput" value="${requestScope.admin.name}"/><i></i></li>
 
