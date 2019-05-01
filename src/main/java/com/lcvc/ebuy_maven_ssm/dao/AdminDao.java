@@ -2,6 +2,7 @@ package com.lcvc.ebuy_maven_ssm.dao;
 
 import com.lcvc.ebuy_maven_ssm.model.Admin;
 import com.lcvc.ebuy_maven_ssm.model.Product;
+import com.lcvc.ebuy_maven_ssm.model.ProductType;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

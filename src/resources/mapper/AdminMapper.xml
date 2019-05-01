@@ -36,4 +36,5 @@
 		select * from admin where id=#{id}
 	</select>
 
+
 </mapper>

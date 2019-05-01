@@ -1,7 +1,9 @@
 package dao;
 
 import com.lcvc.ebuy_maven_ssm.dao.AdminDao;
+import com.lcvc.ebuy_maven_ssm.dao.ProductTypeDao;
 import com.lcvc.ebuy_maven_ssm.model.Admin;
+import com.lcvc.ebuy_maven_ssm.model.ProductType;
 import com.lcvc.ebuy_maven_ssm.test.SpringJunitTest;
 import com.lcvc.ebuy_maven_ssm.util.SHA;
 import org.junit.Test;
@@ -12,6 +14,7 @@ import java.util.List;
 
 public class AdminDaoTest extends SpringJunitTest {
     @Resource
+    private ProductTypeDao productTypeDao;
     private AdminDao adminDao;
 
     @Test
@@ -74,4 +77,13 @@ public class AdminDaoTest extends SpringJunitTest {
         System.out.println(adminDao.getAdmin(2));
        System.out.println(adminDao.getAdmin(100));
    }
+
+    /*@Test
+    public void testGetProductTypeList(){
+        List<ProductType> list=adminDao.getProductTypeList();
+        for (int i=0;i<list.size();i++){
+           ProductType productType=list.get(i);
+            System.out.println(productType.getName());
+        }
+    }*/
 }

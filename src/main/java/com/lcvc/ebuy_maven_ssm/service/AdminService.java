@@ -4,6 +4,7 @@ import com.lcvc.ebuy_maven_ssm.dao.AdminDao;
 import com.lcvc.ebuy_maven_ssm.dao.SqlSessionFactoryUtil;
 import com.lcvc.ebuy_maven_ssm.model.Admin;
 import com.lcvc.ebuy_maven_ssm.model.Product;
+import com.lcvc.ebuy_maven_ssm.model.ProductType;
 import com.lcvc.ebuy_maven_ssm.util.SHA;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;

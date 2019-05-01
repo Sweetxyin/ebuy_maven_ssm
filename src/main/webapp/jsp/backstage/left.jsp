@@ -64,8 +64,8 @@
             <span><img src="images/leftico01.png"/></span>产品模块
         </div>
         <ul class="menuson">
-            <li><cite></cite><a href="<%=basePath%>backstage/product/toTypeProduct" target="rightFrame">产品分类管理</a><i></i></li>
-            <li><cite></cite><a href="<%=basePath%>jsp/backstage/admin/adminupdate.jsp" target="rightFrame">产品管理</a><i></i></li>
+            <li><cite></cite><a href="<%=basePath%>backstage/producttype/toProductType" target="rightFrame">产品分类管理</a><i></i></li>
+            <li><cite></cite><a href="<%=basePath%>backstage/producttype/toProduct" target="rightFrame">产品管理</a><i></i></li>
         </ul>
     </dd>
 

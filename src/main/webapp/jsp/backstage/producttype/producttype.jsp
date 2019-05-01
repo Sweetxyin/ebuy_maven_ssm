@@ -32,10 +32,10 @@ $(document).ready(function(){
   $(".tip").fadeOut(100);
 });
 
-    $("a[name='deleteAdmin']").click(function () {
+    $("a[name='deleteProduct']").click(function () {
         var url=$(this).attr("href");
-        var username=$(this).attr("id")
-        if (window.confirm("确认删除该账户("+username+")吗？")){
+        var name=$(this).attr("id")
+        if (window.confirm("确认删除该账户("+name+")吗？")){
             return true;//执行链接跳转
         }else {
             return false;//不执行链接的跳转
@@ -64,7 +64,7 @@ $(document).ready(function(){
     <div class="tools">
     
     	<ul class="toolbar">
-            <a href="<%=basePath%>/backstage/adminmanage/toAddAdmin">
+            <a href="<%=basePath%>/backstage/producttype/toAddProductType">
                 <li class="click"><span><img src="<%=basePath%>jsp/backstage/images/t01.png" /></span>添加产品分类</li>
             </a>
        <%-- <li class="click"><span><img src="images/t02.png" /></span>修改</li>
@@ -101,8 +101,8 @@ $(document).ready(function(){
             <td>${producttype.linkUrl}</td>
             <td>${producttype.intro}</td>
             <td>${producttype.orderNum}</td>
-        <td><a href="<%=basePath%>backstage/adminmanage/toUpdateAdmin?id=${admin.id}" class="tablelink">修改</a>
-            <a id="${admin.username}" name="deleteAdmin" href="<%=basePath%>backstage/adminmanage/doDeleteAdmin?id=${admin.id}" class="tablelink"> 删除</a></td>
+        <td><a href="<%=basePath%>backstage/producttype/toUpdateProductType?id=${producttype.id}" class="tablelink">修改</a>
+            <a id="${producttype.name}" name="deleteProduct" href="<%=basePath%>backstage/producttype/doDeleteProductType?id=${producttype.id}" class="tablelink"> 删除</a></td>
         </tr>
         </c:forEach>
 
