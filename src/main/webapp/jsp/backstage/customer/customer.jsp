@@ -32,10 +32,10 @@ $(document).ready(function(){
   $(".tip").fadeOut(100);
 });
 
-    $("a[name='deleteAdmin']").click(function () {
+    $("a[name='deleteCustomer']").click(function () {
         var url=$(this).attr("href");
         var username=$(this).attr("id")
-        if (window.confirm("确认删除该账户("+username+")吗？")){
+        if (window.confirm("确认删除该账户("+name+")吗？")){
             return true;//执行链接跳转
         }else {
             return false;//不执行链接的跳转
@@ -64,8 +64,8 @@ $(document).ready(function(){
     <div class="tools">
     
     	<ul class="toolbar">
-            <a href="<%=basePath%>/backstage/producttype/toAddProduct">
-                <li class="click"><span><img src="<%=basePath%>jsp/backstage/images/t01.png" /></span>添加产品分类</li>
+            <a href="<%=basePath%>/backstage/customer/toAddCustomer">
+                <li class="click"><span><img src="<%=basePath%>jsp/backstage/images/t01.png" /></span>添加客户</li>
             </a>
        <%-- <li class="click"><span><img src="images/t02.png" /></span>修改</li>
         <li><span><img src="images/t03.png" /></span>删除</li>
@@ -83,35 +83,29 @@ $(document).ready(function(){
     <table class="tablelist">
     	<thead>
     	<tr>
-            <th><input name="" type="checkbox" value="" checked="checked"/></th>
-            <th>产品图片<i class="sort"></i></th>
-            <th>产品名</th>
-            <th>产品分类</th>
-            <th>产品价格</th>
-            <th>发布人</th>
-            <th>是否上架</th>
-            <th>库存</th>
-            <th>点击数</th>
-            <th>操作</th>
+        <th><input name="" type="checkbox" value="" checked="checked"/></th>
+        <th>账户名<i class="sort"></i></th>
+        <th>名字</th>
+        <th>电子邮箱</th>
+            <th>注册时间</th>
+            <th>订单数量</th>
+            <th>消费金额</th>
+        <th>操作</th>
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="product" items="${requestScope.list}">
-            <tr>
-                <td><input name="" type="checkbox" value=""/></td>
-                <td>${product.picUrl}</td>
-                <td>${product.name}</td>
-                <td>${product.name}</td>
-                <td>${product.price}</td>
-                <td>admin</td>
-                <td>上架中</td>
-                <td>${product.number}</td>
-                <td>${product.click}</td>
-                <td><a href="<%=basePath%>backstage/adminmanage/toUpdateAdmin?id=${admin.id}" class="tablelink">修改</a>
-                    <a id="${admin.username}" name="deleteAdmin"
-                       href="<%=basePath%>backstage/adminmanage/doDeleteAdmin?id=${admin.id}" class="tablelink"> 删除</a>
-                </td>
-            </tr>
+        <c:forEach  var="customer" items="${requestScope.list}">
+        <tr>
+        <td><input name="" type="checkbox" value="" /></td>
+        <td>${customer.username}</td>
+        <td>${customer.name}</td>
+            <td>${customer.email}</td>
+            <td>${customer.createTime}</td>
+           <td></td>
+            <td></td>
+        <td><a href="<%=basePath%>backstage/customer/toUpdateCustomer?id=${customer.id}" class="tablelink">修改</a>
+            <a id="${customer.username}" name="deleteCustomer" href="<%=basePath%>backstage/customer/doDeleteCustomer?id=${customer.id}" class="tablelink"> 删除</a></td>
+        </tr>
         </c:forEach>
 
         </tbody>

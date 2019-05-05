@@ -1,15 +1,15 @@
 package com.lcvc.ebuy_maven_ssm.service;
 
-import com.lcvc.ebuy_maven_ssm.dao.AdminDao;
+
 import com.lcvc.ebuy_maven_ssm.dao.ProductTypeDao;
-import com.lcvc.ebuy_maven_ssm.model.Admin;
+
 import com.lcvc.ebuy_maven_ssm.model.Product;
 import com.lcvc.ebuy_maven_ssm.model.ProductType;
-import com.lcvc.ebuy_maven_ssm.util.SHA;
+
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.Date;
+
 import java.util.List;
 
 @Service
