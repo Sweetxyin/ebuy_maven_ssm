@@ -1,27 +1,24 @@
 package com.lcvc.ebuy_maven_ssm.dao;
 
-import com.lcvc.ebuy_maven_ssm.model.Admin;
 import com.lcvc.ebuy_maven_ssm.model.Product;
-import com.lcvc.ebuy_maven_ssm.model.ProductType;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface ProductTypeDao {
+public interface ProductDao {
+
 
     /**
-     * 返回所有的产品分类管理
+     * 返回所有的产品管理
      * @return 以list方式返回
      */
-    List<ProductType> getProductTypeList();
-
+    List<Product> getProductList();
 
     /**
 
      * @param id 主键
      * @return 返回删除的个数
      */
-    int deleteProductType(Integer id);
+    int deleteProduct(Integer id);
 
 
     /**
@@ -29,13 +26,13 @@ public interface ProductTypeDao {
      * @return 返回添加了多少条记录
      */
 
-    int saveProductType(ProductType productType);
+    int saveProduct(Product product);
 
     /**
-     * 修改产品分类
+     * 修改产品管理
      * @return
      */
-    int updateProductType(ProductType productType);
+    int updateProduct(Product product);
 
 
     /**
@@ -43,5 +40,5 @@ public interface ProductTypeDao {
      * @param id
      * @return
      */
-    ProductType getProductType(int id);
+    Product getProduct(int id);
 }

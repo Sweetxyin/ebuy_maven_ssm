@@ -14,6 +14,11 @@
 <link href="<%=basePath%>jsp/backstage/css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="<%=basePath%>jsp/backstage/js/jquery.js"></script>
 
+    <style>
+        .pzt{
+            color: #9b9b9b;
+        }
+    </style>
 <script type="text/javascript">
 $(document).ready(function(){
   $(".click").click(function(){
@@ -32,10 +37,10 @@ $(document).ready(function(){
   $(".tip").fadeOut(100);
 });
 
-    $("a[name='deleteAdmin']").click(function () {
+    $("a[name='deleteProduct']").click(function () {
         var url=$(this).attr("href");
-        var username=$(this).attr("id")
-        if (window.confirm("确认删除该账户("+username+")吗？")){
+        var name=$(this).attr("id")
+        if (window.confirm("确认删除该账户("+name+")吗？")){
             return true;//执行链接跳转
         }else {
             return false;//不执行链接的跳转
@@ -64,7 +69,7 @@ $(document).ready(function(){
     <div class="tools">
     
     	<ul class="toolbar">
-            <a href="<%=basePath%>/backstage/producttype/toAddProduct">
+            <a href="<%=basePath%>/backstage/product/toAddProduct">
                 <li class="click"><span><img src="<%=basePath%>jsp/backstage/images/t01.png" /></span>添加产品分类</li>
             </a>
        <%-- <li class="click"><span><img src="images/t02.png" /></span>修改</li>
@@ -100,16 +105,18 @@ $(document).ready(function(){
             <tr>
                 <td><input name="" type="checkbox" value=""/></td>
                 <td>${product.picUrl}</td>
-                <td>${product.name}</td>
+                <td>${product.name}
+                       <p class="pzt"> 发布时间：<fmt:formatDate value="${product.createTime}" pattern="yyyy年MM月dd日 HH:mm" /></p>
+                </td>
                 <td>${product.name}</td>
                 <td>${product.price}</td>
                 <td>admin</td>
                 <td>上架中</td>
                 <td>${product.number}</td>
                 <td>${product.click}</td>
-                <td><a href="<%=basePath%>backstage/adminmanage/toUpdateAdmin?id=${admin.id}" class="tablelink">修改</a>
-                    <a id="${admin.username}" name="deleteAdmin"
-                       href="<%=basePath%>backstage/adminmanage/doDeleteAdmin?id=${admin.id}" class="tablelink"> 删除</a>
+                <td><a href="<%=basePath%>backstage/product/toUpdateProduct?id=${product.id}" class="tablelink">修改</a>
+                    <a id="${product.name}" name="deleteProduct"
+                       href="<%=basePath%>/backstage/product/doDeleteProduct?id=${product.id}" class="tablelink"> 删除</a>
                 </td>
             </tr>
         </c:forEach>
