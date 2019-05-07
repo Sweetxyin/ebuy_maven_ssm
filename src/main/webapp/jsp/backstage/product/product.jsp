@@ -18,6 +18,10 @@
         .pzt{
             color: #9b9b9b;
         }
+        .red{
+            color: red;
+           line-height: 1%;
+        }
     </style>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -105,13 +109,25 @@ $(document).ready(function(){
             <tr>
                 <td><input name="" type="checkbox" value=""/></td>
                 <td>${product.picUrl}</td>
-                <td>${product.name}
-                       <p class="pzt"> 发布时间：<fmt:formatDate value="${product.createTime}" pattern="yyyy年MM月dd日 HH:mm" /></p>
+                <td>${product.name}<br/>
+                       <a class="pzt"> 发布时间：<fmt:formatDate value="${product.createTime}" pattern="yyyy年MM月dd日 HH:mm" /></a>
                 </td>
                 <td>${product.name}</td>
-                <td>${product.price}</td>
+                <td class="red">${product.price}
+                     <del class="pzt">${product.originalPrice}</del>
+                </td>
                 <td>admin</td>
-                <td>上架中</td>
+                <td>
+                    <c:set var="product" scope="request" value=""/>
+                    <c:choose>
+                    <c:when test="${product.onSale=='true'}">
+                        上架中
+                    </c:when>
+                        <c:otherwise>
+                          下架
+                        </c:otherwise>
+                </c:choose>
+                </td>
                 <td>${product.number}</td>
                 <td>${product.click}</td>
                 <td><a href="<%=basePath%>backstage/product/toUpdateProduct?id=${product.id}" class="tablelink">修改</a>

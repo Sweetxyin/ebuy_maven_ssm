@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
@@ -34,15 +35,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="formtitle"><span>产品添加</span></div>
     <form action="<%=basePath%>/backstage/product/doAddProduct" method="post">
     <ul class="forminfo">
-        <li><label>*产品分类</label><input name="productTypeId" type="text" class="dfinput"/><i></i></li>
+
+            <li><label>*产品分类</label>
+                <select class="dfinput">
+                    <option value ="0">请选择</option>
+                    <c:forEach var="producttype" items="${requestScope.list}" >
+                    <option value ="#">${producttype.name}</option>
+                    </c:forEach>
+                </select>
+            <i></i></li>
+
         <li><label>*产品名称</label><input name="name" type="text" class="dfinput"/><i></i></li>
         <li><label>*产品图片</label><input name="picUrl" type="text" class="dfinput"/><i></i></li>
         <li><label>*产品原价</label><input name="originalPrice" type="text" class="dfinput"/><i></i></li>
         <li><label>*产品现价</label><input name="price" type="text" class="dfinput"/><i></i></li>
         <li><label>*产品库存</label><input name="number" type="text" class="dfinput"/><i></i></li>
-        <li><label>*优先级</label><input name="orderNum" type="text" class="dfinput"/><i></i></li>
-        <li><label>*点击数</label><input name="click" type="text" class="dfinput"/><i></i></li>
-        <li><label>*是否上架</label><input name="onSale" type="text" class="dfinput"/><i></i></li>
+        <li><label>*优先级</label><input name="orderNum" type="text" class="dfinput" value="100"/><i></i></li>
+        <li><label>*点击数</label><input name="click" type="text" class="dfinput" value="44"/><i></i></li>
+        <li><label>*是否上架</label>
+            <select name="onSale" class="dfinput">
+                <option value ="0">上架</option>
+                <option value ="1">下架</option>
+            </select>
+            <i></i></li>
         <li><label>*产品描述</label><input name="description" type="text" class="dfinput"/><i></i></li>
         <li><label>*产品内容</label><input name="content" type="text" class="dfinput"/><i></i></li>
 

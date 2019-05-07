@@ -11,7 +11,7 @@
 		delete from product where id=#{id}
 	</delete>
 	<insert id="saveProduct">
-		insert into product (id,name,linkUrl,imageUrl,intro,orderNum) VALUES(null,#{name},#{linkUrl},#{imageUrl},#{intro},#{orderNum})
+		insert into product VALUES(null,#{productTypeId},#{name},#{picUrl},#{price},#{originalPrice},#{number},#{orderNum},#{click},#{onSale},${description},${content})
 	</insert>
 	<update id="updateProduct">
 		update product set name=#{name},imageUrl=#{imageUrl},orderNum=#{orderNum} where id=#{id}

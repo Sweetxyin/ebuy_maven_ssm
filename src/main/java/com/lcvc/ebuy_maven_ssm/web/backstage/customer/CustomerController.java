@@ -48,4 +48,13 @@ public class CustomerController {
 		return "/jsp/backstage/customer/customeradd.jsp";
 	}
 
+	//执行删除产品分类操作
+	@RequestMapping(value = "/backstage/customer/doDeleteCustomer", method = RequestMethod.GET)
+	public String doDeleteCustomer(HttpServletRequest request, HttpSession session,Integer id) {
+		Customer customer=(Customer) session.getAttribute("customer") ;
+		customerService.deleteCustomer(id);
+		request.setAttribute("list",customerService.getCustomerList());
+		return "/jsp/backstage/customer/customer.jsp";
+	}
+
 }

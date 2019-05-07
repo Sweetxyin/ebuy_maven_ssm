@@ -39,7 +39,7 @@ public class CustomerService {
 
     /**
      * 将账户信息存入数据库
-     * @param productType
+     * @param
      * @return true表示保存成功，false表示保存失败
      */
 
@@ -54,7 +54,7 @@ public class CustomerService {
 
     /**
      * 修改产品分类
-     * @param productType
+     * @param
      * @return flash表示修改失败， true表示修改成功
      */
     public boolean updateCustomer(Customer customer){

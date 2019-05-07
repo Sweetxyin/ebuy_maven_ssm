@@ -97,7 +97,7 @@ $(document).ready(function(){
         <tr>
         <td><input name="" type="checkbox" value="" /></td>
         <td>${producttype.name}</td>
-        <td>${producttype.imageUrl}</td>
+        <td><img src="${producttype.imageUrl}"/></td>
             <td>${producttype.linkUrl}</td>
             <td>${producttype.intro}</td>
             <td>${producttype.orderNum}</td>

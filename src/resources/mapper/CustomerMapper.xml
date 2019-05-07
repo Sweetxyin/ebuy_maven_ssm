@@ -11,8 +11,7 @@
 		delete from customer where id=#{id}
 	</delete>
 	<insert id="saveCustomer">
-		insert into customer (id,,username,password,name,tel,address,zip,email,picUrl,intro,createTime)
-		VALUES(null,#{username},#{password},#{name},#{tel},#{address},#{zip},#{email},#{picUrl},#{intro}),#{createTime}
+		insert into customer (id,,username,password,name,tel,address,zip,email,picUrl,intro,createTime) VALUES(null,#{username},#{password},#{name},#{tel},#{address},#{zip},#{email},#{picUrl},#{intro}),#{createTime}
 	</insert>
 	<update id="updateCustomer">
 		update customer set name=#{name},imageUrl=#{imageUrl},orderNum=#{orderNum} where id=#{id}

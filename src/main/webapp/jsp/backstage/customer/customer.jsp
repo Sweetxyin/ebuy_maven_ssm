@@ -35,7 +35,7 @@ $(document).ready(function(){
     $("a[name='deleteCustomer']").click(function () {
         var url=$(this).attr("href");
         var username=$(this).attr("id")
-        if (window.confirm("确认删除该账户("+name+")吗？")){
+        if (window.confirm("确认删除该账户("+username+")吗？")){
             return true;//执行链接跳转
         }else {
             return false;//不执行链接的跳转
@@ -100,7 +100,7 @@ $(document).ready(function(){
         <td>${customer.username}</td>
         <td>${customer.name}</td>
             <td>${customer.email}</td>
-            <td>${customer.createTime}</td>
+            <td><fmt:formatDate value="${customer.createTime}" pattern="yyyy年MM月dd日 HH:mm" /></td>
            <td></td>
             <td></td>
         <td><a href="<%=basePath%>backstage/customer/toUpdateCustomer?id=${customer.id}" class="tablelink">修改</a>
