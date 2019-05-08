@@ -40,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <select class="dfinput">
                     <option value ="0">请选择</option>
                     <c:forEach var="producttype" items="${requestScope.list}" >
-                    <option value ="#">${producttype.name}</option>
+                    <option value ="${producttype.id}">${producttype.name}</option>
                     </c:forEach>
                 </select>
             <i></i></li>
@@ -54,11 +54,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <li><label>*点击数</label><input name="click" type="text" class="dfinput" value="44"/><i></i></li>
         <li><label>*是否上架</label>
             <select name="onSale" class="dfinput">
-                <option value ="0">上架</option>
-                <option value ="1">下架</option>
+                <option value ="true" selected="selected">上架</option>
+                <option value ="false">下架</option>
             </select>
             <i></i></li>
-        <li><label>*产品描述</label><input name="description" type="text" class="dfinput"/><i></i></li>
+        <li><label>*产品描述</label>
+            <textarea  name="description" rows cols class="textinput"></textarea>
+            <i></i></li>
         <li><label>*产品内容</label><input name="content" type="text" class="dfinput"/><i></i></li>
 
     <li><label>&nbsp;</label>

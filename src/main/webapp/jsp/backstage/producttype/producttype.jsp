@@ -55,7 +55,7 @@ $(document).ready(function(){
     <span>位置：</span>
     <ul class="placeul">
     <li><a href="#">首页</a></li>
-    <li><a href="#">管理账户管理</a></li>
+    <li><a href="#">产品分类管理</a></li>
     </ul>
     </div>
     
@@ -98,8 +98,17 @@ $(document).ready(function(){
         <td><input name="" type="checkbox" value="" /></td>
         <td>${producttype.name}</td>
         <td><img src="${producttype.imageUrl}"/></td>
-            <td>${producttype.linkUrl}</td>
-            <td>${producttype.intro}</td>
+            <td>
+                <c:choose>
+                    <c:when test="${producttype.linkUrl==null|| producttype.linkUrl==''}">
+                        无
+                    </c:when>
+                    <c:otherwise>
+                        ${producttype.linkUrl}
+                    </c:otherwise>
+                </c:choose>
+                   </td>
+            <td>${producttype.orderNum}</td>
             <td>${producttype.orderNum}</td>
         <td><a href="<%=basePath%>backstage/producttype/toUpdateProductType?id=${producttype.id}" class="tablelink">修改</a>
             <a id="${producttype.name}" name="deleteProduct" href="<%=basePath%>backstage/producttype/doDeleteProductType?id=${producttype.id}" class="tablelink"> 删除</a></td>

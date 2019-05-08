@@ -48,13 +48,37 @@ public class CustomerController {
 		return "/jsp/backstage/customer/customeradd.jsp";
 	}
 
-	//执行删除产品分类操作
+	//执行删除客户操作
 	@RequestMapping(value = "/backstage/customer/doDeleteCustomer", method = RequestMethod.GET)
 	public String doDeleteCustomer(HttpServletRequest request, HttpSession session,Integer id) {
 		Customer customer=(Customer) session.getAttribute("customer") ;
 		customerService.deleteCustomer(id);
 		request.setAttribute("list",customerService.getCustomerList());
 		return "/jsp/backstage/customer/customer.jsp";
+	}
+
+
+	//跳转到客户信息修改页面
+	@RequestMapping(value = "/backstage/customer/toUpdateCustomer", method = RequestMethod.GET)
+	public String toUpdateCustomer(HttpServletRequest request,Integer id) {
+		request.setAttribute("customer",customerService.getCustomer(id));
+		return "/jsp/backstage/customer/customerupdate.jsp";
+	}
+	//执行修改客户的基本信息
+	@RequestMapping(value = "/backstage/customer/doUpdateCustomer", method = RequestMethod.POST)
+	public String doUpdateCustomer(HttpSession session,HttpServletRequest request,Customer customer){
+		customer.setUsername(customer.getUsername().trim());
+		customer.setName(customer.getName().trim());
+		if (customer.getUsername().length()==0){
+			request.setAttribute("myMessage", "编辑客户信息失败：账户名不能为空");
+		}else if (customer.getName().length()==0){
+			request.setAttribute("myMessage", "编辑客户信息失败：姓名为空");
+		}
+		else {
+			customerService.updateCustomer(customer);
+			request.setAttribute("myMessage", "修改客户信息成功！");
+		}
+		return "/jsp/backstage/customer/customeradd.jsp";
 	}
 
 }

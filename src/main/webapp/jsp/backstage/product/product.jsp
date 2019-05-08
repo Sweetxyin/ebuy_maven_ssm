@@ -64,7 +64,7 @@ $(document).ready(function(){
     <span>位置：</span>
     <ul class="placeul">
     <li><a href="#">首页</a></li>
-    <li><a href="#">管理账户管理</a></li>
+    <li><a href="#">产品管理</a></li>
     </ul>
     </div>
     
@@ -74,11 +74,12 @@ $(document).ready(function(){
     
     	<ul class="toolbar">
             <a href="<%=basePath%>/backstage/product/toAddProduct">
-                <li class="click"><span><img src="<%=basePath%>jsp/backstage/images/t01.png" /></span>添加产品分类</li>
+                <li class="click"><span><img src="<%=basePath%>jsp/backstage/images/t01.png" /></span>添加产品</li>
             </a>
+            <li><span><img src="<%=basePath%>jsp/backstage/images/t04.png" /></span>统计</li>
        <%-- <li class="click"><span><img src="images/t02.png" /></span>修改</li>
         <li><span><img src="images/t03.png" /></span>删除</li>
-        <li><span><img src="images/t04.png" /></span>统计</li>--%>
+        --%>
         </ul>
         
       <%--
@@ -108,13 +109,14 @@ $(document).ready(function(){
         <c:forEach var="product" items="${requestScope.list}">
             <tr>
                 <td><input name="" type="checkbox" value=""/></td>
-                <td>${product.picUrl}</td>
-                <td>${product.name}<br/>
-                       <a class="pzt"> 发布时间：<fmt:formatDate value="${product.createTime}" pattern="yyyy年MM月dd日 HH:mm" /></a>
+                <td><img src="${product.picUrl}"/> </td>
+                <td>${product.name}
+                       <p style="color: #7f7f7f; line-height: 13px;"> 发布时间：<fmt:formatDate value="${product.createTime}" pattern="yyyy年MM月dd日 HH:mm" /></p>
                 </td>
                 <td>${product.name}</td>
-                <td class="red">${product.price}
-                     <del class="pzt">${product.originalPrice}</del>
+                <td class="red">
+                   ${product.price}
+                    <p style="text-decoration:line-through; color: #7f7f7f; line-height: 1px;">${product.originalPrice}</p>
                 </td>
                 <td>admin</td>
                 <td>

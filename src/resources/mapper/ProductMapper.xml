@@ -7,6 +7,18 @@
 	<select id="getProductList" resultType="com.lcvc.ebuy_maven_ssm.model.Product">
 		select * from product order by id asc
 	</select>
+	<select id="getProductTypeID">
+		select product.id,product.name,producttype.name from product,producttype where product.productTypeId=producttype.id
+	</select>
+	<resultMap id="ProductTypeId" type="Product">
+		<id property="id" column="id"/>
+		<result property="id" column="id"/>
+		<result property="name" column="name"/>
+		<collection property="productType" ofType="ProductType">
+			<id property="id" column="id"/>
+			<result property="name" column="name"/>
+		</collection>
+	</resultMap>
 	<delete id="deleteProduct" >
 		delete from product where id=#{id}
 	</delete>

@@ -41,4 +41,6 @@ public interface ProductDao {
      * @return
      */
     Product getProduct(int id);
+
+    int getProductTypeID(Product product);
 }

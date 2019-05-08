@@ -11,10 +11,10 @@
 		delete from customer where id=#{id}
 	</delete>
 	<insert id="saveCustomer">
-		insert into customer (id,,username,password,name,tel,address,zip,email,picUrl,intro,createTime) VALUES(null,#{username},#{password},#{name},#{tel},#{address},#{zip},#{email},#{picUrl},#{intro}),#{createTime}
+		insert into customer (id,username,password,name,tel,address,zip,email,picUrl,intro,createTime)values(null,#{username},#{password},#{name},#{tel},#{address},#{zip},#{email},#{picUrl},#{intro},#{createTime})
 	</insert>
 	<update id="updateCustomer">
-		update customer set name=#{name},imageUrl=#{imageUrl},orderNum=#{orderNum} where id=#{id}
+		update customer set username=#{username},password=#{password},name=#{name},tel=#{tel},address=#{address},zip=#{zip},email=#{email},picUrl=#{picUrl},intro=#{intro} where id=#{id}
 	</update>
 	<select id="getCustomer" resultType="com.lcvc.ebuy_maven_ssm.model.Customer">
 		select * from customer where id=#{id}

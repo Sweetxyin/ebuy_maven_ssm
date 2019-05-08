@@ -5,6 +5,7 @@ import com.lcvc.ebuy_maven_ssm.dao.CustomerDao;
 import com.lcvc.ebuy_maven_ssm.model.Customer;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -45,9 +46,11 @@ public class CustomerService {
 
     public boolean saveCustomer(Customer customer){
         Boolean status=false;//默认添加失败
-        int i=customerDao.saveCustomer(customer);
-        if (i>0){
+        customer.setCreateTime(new Date());
+        if (customerDao.saveCustomer(customer)==1){
             status=true;
+        }else {
+            status=false;
         }
         return status;
     }
