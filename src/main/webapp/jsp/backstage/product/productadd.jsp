@@ -46,7 +46,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <i></i></li>
 
         <li><label>*产品名称</label><input name="name" type="text" class="dfinput"/><i></i></li>
-        <li><label>*产品图片</label><input name="picUrl" type="text" class="dfinput"/><i></i></li>
+        <li><label>*产品图片</label><input name="picUrl" type="text" class="dfinput"/>
+            <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片">
+            <a href="#" id="clearImagePath1">清除选择图片路径</a>
+            <i></i></li>
         <li><label>*产品原价</label><input name="originalPrice" type="text" class="dfinput"/><i></i></li>
         <li><label>*产品现价</label><input name="price" type="text" class="dfinput"/><i></i></li>
         <li><label>*产品库存</label><input name="number" type="text" class="dfinput"/><i></i></li>

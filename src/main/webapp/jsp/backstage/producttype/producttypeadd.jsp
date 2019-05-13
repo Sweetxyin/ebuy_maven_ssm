@@ -35,7 +35,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <form action="<%=basePath%>/backstage/producttype/doAddProductType" method="post">
     <ul class="forminfo">
         <li><label>*产品分类名称</label><input name="name" type="text" class="dfinput"/><i></i></li>
-        <li><label>*图片</label><input name="imageUrl" type="text" class="dfinput"/><i></i></li>
+        <li><label>*图片</label><input name="imageUrl" type="text" class="dfinput"/>
+            <input type="button" id="image1" class="dfinput" style="width:120px;" value="点我选择图片">
+            <a href="#" id="clearImagePath1">清除选择图片路径</a>
+            <i></i></li>
         <li><label>*优先级</label><input name="orderNum" type="text" class="dfinput"/><i></i></li>
         <li><label>外部链接地址</label><input name="linkUrl" type="text" class="dfinput"/><i></i></li>
         <li><label>产品描述</label><input name="intro" type="text" class="dfinput"/><i></i></li>
