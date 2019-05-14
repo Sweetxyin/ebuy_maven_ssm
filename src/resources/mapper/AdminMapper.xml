@@ -5,7 +5,7 @@
  -->
 <mapper namespace="com.lcvc.ebuy_maven_ssm.dao.AdminDao">
 	<!-- 根据账户名和密码，查询得到一个admin对象 -->
-	<select id="login" resultType="com.lcvc.ebuy_maven_ssm.model.Admin">
+	<select id="login" resultType="Admin">
 		select * from admin where username=#{username} and password=#{password}
 	</select>
 
@@ -23,7 +23,7 @@
 	<select id="existsUsername" resultType="int">
 		select count(id) from admin  WHERE username=#{username}
 	</select>
-	<select id="getAdminList" resultType="com.lcvc.ebuy_maven_ssm.model.Admin">
+	<select id="getAdminList" resultType="Admin">
 		select * from admin order by id asc
 	</select>
 	<delete id="deleteAdmin" >
@@ -32,7 +32,7 @@
 	<insert id="saveAdmin">
 	insert into admin (id,username,password,name,createTime) VALUES(null,#{username},#{password},#{name},#{createTime})
 	</insert>
-	<select id="getAdmin" resultType="com.lcvc.ebuy_maven_ssm.model.Admin">
+	<select id="getAdmin" resultType="Admin">
 		select * from admin where id=#{id}
 	</select>
 

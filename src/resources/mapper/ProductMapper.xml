@@ -4,7 +4,7 @@
 例如namespace="com.cn.mybatis.test1.dao.userMapper"就是com.cn.mybatis.test1.dao(包名)+userMapper(userMapper.xml文件去除后缀)
  -->
 <mapper namespace="com.lcvc.ebuy_maven_ssm.dao.ProductDao">
-	<select id="getProductList" resultType="com.lcvc.ebuy_maven_ssm.model.Product">
+	<select id="getProductList" resultType="Product">
 		select * from product order by id asc
 	</select>
 	<!--<select id="getProductTypeID">
@@ -28,7 +28,7 @@
 	<update id="updateProduct">
 		update product set name=#{name},imageUrl=#{imageUrl},orderNum=#{orderNum} where id=#{id}
 	</update>
-	<select id="getProduct" resultType="com.lcvc.ebuy_maven_ssm.model.Product">
+	<select id="getProduct" resultType="Product">
 		select * from product where id=#{id}
 	</select>
 </mapper>

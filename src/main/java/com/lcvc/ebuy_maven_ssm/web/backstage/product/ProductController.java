@@ -50,6 +50,20 @@ public class ProductController {
 		return "/jsp/backstage/product/productadd.jsp";
 	}
 
+	//跳转到产品管理修改页面
+	@RequestMapping(value = "/backstage/product/toUpdateProduct", method = RequestMethod.GET)
+	public String toUpdateProduct(HttpServletRequest request,Integer id) {
+		request.setAttribute("product",productService.getProduct(id));
+		return "/jsp/backstage/product/productupdate.jsp";
+	}
+	//执行修改产品管理的基本信息
+	@RequestMapping(value = "/backstage/product/doUpdateProduct", method = RequestMethod.POST)
+	public String doUpdateProduct(HttpSession session,HttpServletRequest request,Product product){
+		  productService.updateProduct(product);
+			request.setAttribute("myMessage", "修改产品分类成功");
+
+		return "/jsp/backstage/product/productupdate.jsp";
+	}
 
 
 }

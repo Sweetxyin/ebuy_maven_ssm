@@ -34,7 +34,7 @@ $(document).ready(function(){
 
     $("a[name='deleteProduct']").click(function () {
         var url=$(this).attr("href");
-        var name=$(this).attr("id")
+        var name=$(this).attr("alt")
         if (window.confirm("确认删除该账户("+name+")吗？")){
             return true;//执行链接跳转
         }else {
@@ -111,7 +111,7 @@ $(document).ready(function(){
             <td>${producttype.orderNum}</td>
             <td>${producttype.orderNum}</td>
         <td><a href="<%=basePath%>backstage/producttype/toUpdateProductType?id=${producttype.id}" class="tablelink">修改</a>
-            <a id="${producttype.name}" name="deleteProduct" href="<%=basePath%>backstage/producttype/doDeleteProductType?id=${producttype.id}" class="tablelink"> 删除</a></td>
+            <a id="${producttype.name}" name="deleteProduct" alt="${producttype.name}" href="<%=basePath%>backstage/producttype/doDeleteProductType?id=${producttype.id}" class="tablelink"> 删除</a></td>
         </tr>
         </c:forEach>
 
