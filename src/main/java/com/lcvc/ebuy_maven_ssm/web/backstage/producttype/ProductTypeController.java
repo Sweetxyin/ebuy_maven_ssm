@@ -59,7 +59,7 @@ public class ProductTypeController {
 	//跳转到产品分类管理修改页面
 	@RequestMapping(value = "/backstage/producttype/toUpdateProductType", method = RequestMethod.GET)
 	public String toUpdateProductType(HttpServletRequest request,Integer id) {
-		request.setAttribute("producttype",productTypeService.getProductType(id));
+		request.setAttribute("productType",productTypeService.getProductType(id));
 		return "/jsp/backstage/producttype/producttypeupdate.jsp";
 	}
 	//执行修改产品分类管理的基本信息
