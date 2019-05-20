@@ -18,6 +18,7 @@
 				<div class="menu">
 					<ul>
 						<li><a href="shoplists.html"><img class="left" alt="" src="<%=basePath%>/jsp/proscenium/resources/images/menu-icon01.png">小吃快餐<img class="right" alt="" src="resources/images/menu-right.png"></a></li>
+						<%--<li><a href="shoplists.html"><img class="left" alt="" src="<%=basePath%>/jsp/proscenium/resources/images/menu-icon01.png">小吃快餐<img class="right" alt="" src="resources/images/menu-right.png"></a></li>
 						<li><a href="shoplists.html"><img class="left" alt="" src="<%=basePath%>jsp/proscenium/resources/images/menu-icon02.png">甜点饮品<img class="right" alt="" src="resources/images/menu-right.png"></a></li>
 						<li><a href="shoplists.html"><img class="left" alt="" src="<%=basePath%>jsp/proscenium/resources/images/menu-icon03.png">西&emsp;&emsp;餐<img class="right" alt="" src="resources/images/menu-right.png"></a></li>
 						<li><a href="shoplists.html"><img class="left" alt="" src="<%=basePath%>jsp/proscenium/resources/images/menu-icon04.png">火&emsp;&emsp;锅<img class="right" alt="" src="resources/images/menu-right.png"></a></li>
@@ -25,7 +26,7 @@
 						<li><a href="shoplists.html"><img class="left" alt="" src="<%=basePath%>jsp/proscenium/resources/images/menu-icon06.png">小&emsp;&emsp;炒<img class="right" alt="" src="resources/images/menu-right.png"></a></li>
 						<li><a href="shoplists.html"><img class="left" alt="" src="<%=basePath%>jsp/proscenium/resources/images/menu-icon07.png">凉菜/时蔬<img class="right" alt="" src="resources/images/menu-right.png"></a></li>
 						<li><a href="shoplists.html"><img class="left" alt="" src="<%=basePath%>jsp/proscenium/resources/images/menu-icon08.png">主&emsp;&emsp;食<img class="right" alt="" src="resources/images/menu-right.png"></a></li>
-						<li><a href="shoplists.html"><img class="left" alt="" src="<%=basePath%>jsp/proscenium/resources/images/menu-icon09.png">水&emsp;&emsp;果<img class="right" alt="" src="resources/images/menu-right.png"></a></li>
+						<li><a href="shoplists.html"><img class="left" alt="" src="<%=basePath%>jsp/proscenium/resources/images/menu-icon09.png">水&emsp;&emsp;果<img class="right" alt="" src="resources/images/menu-right.png"></a></li>--%>
 					</ul>
 				</div>
 			</div>

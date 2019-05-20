@@ -4,6 +4,7 @@ package com.lcvc.ebuy_maven_ssm.web.backstage.producttype;
 import com.lcvc.ebuy_maven_ssm.model.ProductType;
 import com.lcvc.ebuy_maven_ssm.service.ProductTypeService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -31,19 +32,20 @@ public class ProductTypeController {
 	}
 	//执行添加产品分类操作
 	@RequestMapping(value = "/backstage/producttype/doAddProductType", method = RequestMethod.POST)
-	public String doAddProductType(HttpServletRequest request, HttpSession session,ProductType productType) {
+	public String doAddProductType(HttpServletRequest request, HttpSession session, Model model, ProductType productType) {
 		productType.setName(productType.getName().trim());
 		productType.setImageUrl(productType.getImageUrl().trim());
 		if (productType.getName().length()==0){
-			request.setAttribute("myMessage", "添加产品分类失败：产品分类名称不能为空");
+			model.addAttribute("myMessage", "添加产品分类失败：产品分类名称不能为空");
 		}else if (productType.getImageUrl().length()==0){
-			request.setAttribute("myMessage", "添加产品分类失败：图片不能为空");
+			model.addAttribute("myMessage", "添加产品分类失败：图片不能为空");
 		}else if (productType.getOrderNum().equals("")){
-			request.setAttribute("myMessage", "添加产品分类失败：优先级不能为空");
+			model.addAttribute("myMessage", "添加产品分类失败：优先级不能为空");
 		}
 		else {
 			productTypeService.saveProductType(productType);
-			request.setAttribute("myMessage", "添加产品分类成功！");
+			model.addAttribute("productType",null);
+			model.addAttribute("myMessage", "添加产品分类成功！");
 		}
 		return "/jsp/backstage/producttype/producttypeadd.jsp";
 	}

@@ -75,7 +75,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="formtitle"><span>客户添加</span></div>
     <form action="<%=basePath%>/backstage/customer/doAddCustomer" method="post">
     <ul class="forminfo">
-        <li><label></label><input name="id" type="hidden" class="dfinput" value="${requestScope.customer.id}"/><i></i></li>
+       <%-- <li><label></label><input name="id" type="hidden" class="dfinput" value="${requestScope.customer.id}"/><i></i></li>--%>
         <li><label>*账户名</label><input name="username" type="text" class="dfinput" value="${requestScope.customer.username}"/><i></i></li>
         <li><label>*姓名</label><input name="name" type="text" class="dfinput" value="${requestScope.customer.name}"/><i></i></li>
         <li><label>头像</label><input id="url1" name="picUrl" type="text" class="dfinput" value="${requestScope.customer.picUrl}"/>
