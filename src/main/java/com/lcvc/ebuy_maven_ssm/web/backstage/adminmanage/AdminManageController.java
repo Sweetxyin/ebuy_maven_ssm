@@ -82,7 +82,7 @@ public class AdminManageController {
 		}else if (adminService.existsAdmin(admin.getUsername(),admin.getId())==true){
 			request.setAttribute("myMessage","账户名重名");
 		}else {
-			adminService.updateAdmin(admin.getUsername(),admin.getName(),admin.getId());
+			adminService.updateAdmin(admin);
 			request.setAttribute("myMessage", "基本信息修改成功");
 			}
 		return "/jsp/backstage/adminmanage/adminupdate.jsp";

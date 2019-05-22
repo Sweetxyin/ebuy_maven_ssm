@@ -11,15 +11,24 @@ import org.junit.Test;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.List;
 
 public class ProductDaoTest extends SpringJunitTest {
     @Resource
     private ProductDao productDao;
 
     @Test
-    public void testGetProductTypeID(){
+    public void testGetProductList(){
+        List<Product> list=productDao.getProductList();
+        for (int i=0;i<list.size();i++){
+            Product product=list.get(i);
+            System.out.println(product.getName()+"\t");
+            System.out.println(product.getProductType().getName()+"\t");
 
+        }
+        System.out.println(productDao.getProductList());
     }
+
 
 
 }

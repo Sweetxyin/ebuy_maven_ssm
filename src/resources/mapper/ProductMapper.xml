@@ -4,21 +4,16 @@
 例如namespace="com.cn.mybatis.test1.dao.userMapper"就是com.cn.mybatis.test1.dao(包名)+userMapper(userMapper.xml文件去除后缀)
  -->
 <mapper namespace="com.lcvc.ebuy_maven_ssm.dao.ProductDao">
-	<select id="getProductList" resultType="Product">
-		select * from product order by id asc
+	<!--	自定义返回类型-->
+	<resultMap id="product" type="Product">
+		<association property="productType" javaType="ProductType" column="productTypeId"  select="com.lcvc.ebuy_maven_ssm.dao.ProductTypeDao.getProductType">
+
+		</association>
+	</resultMap>
+	<select id="getProductList" resultMap="product">
+		select * from product order by orderNum asc
 	</select>
-	<!--<select id="getProductTypeID">
-		select product.id,product.name,producttype.name from product,producttype where product.productTypeId=producttype.id
-	</select>
-	<resultMap id="ProductTypeId" type="Product">
-		<id property="id" column="id"/>
-		<result property="id" column="id"/>
-		<result property="name" column="name"/>
-		<collection property="productType" ofType="ProductType">
-			<id property="id" column="id"/>
-			<result property="name" column="name"/>
-		</collection>
-	</resultMap>-->
+
 	<delete id="deleteProduct" >
 		delete from product where id=#{id}
 	</delete>
@@ -26,7 +21,22 @@
 		insert into product VALUES(null,#{productTypeId},#{name},#{picUrl},#{price},#{originalPrice},#{number},#{orderNum},#{click},#{onSale},${description},${content})
 	</insert>
 	<update id="updateProduct">
-		update product set name=#{name},imageUrl=#{imageUrl},orderNum=#{orderNum} where id=#{id}
+        update product
+		<set>
+			<if test="name!=null and name.length()>0">name=#{name},</if>
+			<if test="picUrl!=null">picUrl=#{picUrl},</if>
+			<if test="productTypeId!=null">productTypeId=#{productTypeId},</if>
+			<if test="orderNum!=null">orderNum=#{orderNum},</if>
+			<if test="description!=null">description=#{description},</if>
+			<if test="content!=null">content=#{content},</if>
+			<if test="price!=null">price=#{price},</if>
+			<if test="originalPrice!=null">originalPrice=#{originalPrice},</if>
+			<if test="click!=null">click=#{click},</if>
+			<if test="onSale!=null">onSale=#{onSale},</if>
+			<if test="createTime!=null">createTime=#{createTime},</if>
+			<if test="creatorId!=null">creatorId=#{creatorId},</if>
+		</set>
+		WHERE id=#{id}
 	</update>
 	<select id="getProduct" resultType="Product">
 		select * from product where id=#{id}

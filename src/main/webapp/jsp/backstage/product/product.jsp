@@ -113,7 +113,9 @@ $(document).ready(function(){
                 <td>${product.name}
                        <p style="color: #7f7f7f; line-height: 13px;"> 发布时间：<fmt:formatDate value="${product.createTime}" pattern="yyyy年MM月dd日 HH:mm" /></p>
                 </td>
-                <td>${product.name}</td>
+                <td>${product.productType.name}
+                    <p style="color: #7f7f7f; line-height: 13px;"> ${product.productType.id}</p>
+                </td>
                 <td class="red">
                    ${product.price}
                     <p style="text-decoration:line-through; color: #7f7f7f; line-height: 1px;">${product.originalPrice}</p>

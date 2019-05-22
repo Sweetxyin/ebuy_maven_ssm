@@ -46,7 +46,10 @@ public class AdminService {
     public boolean updatePassword(String newPass,Integer id){
         Boolean status=false;//默认编辑失败
         newPass= SHA.getResult(newPass);
-        if(adminDao.updatePassword(newPass,id)>0){
+        Admin admin=new Admin();
+        admin.setId(id);
+        admin.setPassword(newPass);
+        if(adminDao.updateAdmin(admin)>0){
             status=true;
         }
         return status;
@@ -57,15 +60,12 @@ public class AdminService {
      * 修改账户名和网名
      * 说明：
      * 1、修改后的账户不能与其他账户的账户名重名
-     * @param username 账户名
-     * @param name 网名
-     * @param id
      * @return flash表示修改失败， true表示修改成功
      */
-    public boolean updateAdmin(String username, String name,Integer id){
+    public boolean updateAdmin(Admin admin){
         Boolean status=false;//默认编辑失败
-        if (adminDao.existsAdmin(username,id)==0){
-            if (adminDao.updateAdmin(username,name,id)==1){
+        if (adminDao.existsAdmin(admin.getUsername(),admin.getId())==0){
+            if (adminDao.updateAdmin(admin)>0){
                 status=true;
             }else {
                 status=false;

@@ -14,7 +14,6 @@ import java.util.List;
 
 public class AdminDaoTest extends SpringJunitTest {
     @Resource
-    private ProductTypeDao productTypeDao;
     private AdminDao adminDao;
 
     @Test
@@ -31,17 +30,9 @@ public class AdminDaoTest extends SpringJunitTest {
     }
 
 
-    @Test
 
-    public void testUpdatePassword() {
 
-        System.out.println(adminDao.updatePassword("111", 2));
-    }
 
-    @Test
-    public void UpdateAdmin() {
-        System.out.println(adminDao.updateAdmin("user", "樱桃小子", 1));
-    }
 
     @Test
     public void testExistsAdmin() {

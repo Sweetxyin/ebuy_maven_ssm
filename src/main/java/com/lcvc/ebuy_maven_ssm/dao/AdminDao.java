@@ -16,22 +16,12 @@ public interface AdminDao {
      */
     Admin login(@Param(value = "username") String username, @Param(value = "password") String password);
 
-    /*
-	 * 张三丰
-	 * 20180330
-	 * 将新密码保存到数据库中
-	 * @return 更改了多少条记录
-	 */
-    int updatePassword(@Param(value = "password") String newpass, @Param(value = "id") Integer id);
 
     /**
      * 修改账户名
-     * @param username 用户名
-     * @param name 网名
-     * @param id 主键
      * @return
      */
-    int updateAdmin(@Param(value = "username")String username,@Param(value = "name")String name,@Param(value = "id")Integer id);
+    int updateAdmin(Admin admin);
 
 
     /**
