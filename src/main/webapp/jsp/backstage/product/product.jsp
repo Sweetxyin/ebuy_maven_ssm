@@ -120,7 +120,7 @@ $(document).ready(function(){
                    ${product.price}
                     <p style="text-decoration:line-through; color: #7f7f7f; line-height: 1px;">${product.originalPrice}</p>
                 </td>
-                <td>admin</td>
+                <td>${product.creator.name}</td>
                 <td>
                     <c:set var="product" scope="request" value=""/>
                     <c:choose>
