@@ -8,10 +8,13 @@ import com.lcvc.ebuy_maven_ssm.service.ProductTypeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class ProductController {
@@ -28,12 +31,14 @@ public class ProductController {
 		return "/jsp/backstage/product/product.jsp";
 	}
 	//执行删除产品操作
+	@ResponseBody
 	@RequestMapping(value = "/backstage/product/doDeleteProduct", method = RequestMethod.GET)
-	public String doDeleteProduct(HttpServletRequest request, HttpSession session,Integer id) {
-		Product product=(Product) session.getAttribute("product");
+	public Map<String,Object> doDeleteProduct(Integer id) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		//Product product=(Product) session.getAttribute("product");
 		productService.deleteProduct(id);
-		request.setAttribute("list",productService.getProductList());
-		return "/jsp/backstage/product/product.jsp";
+		map.put("status", 1);
+		return map;
 	}
 
 	//跳转到添加产品页面

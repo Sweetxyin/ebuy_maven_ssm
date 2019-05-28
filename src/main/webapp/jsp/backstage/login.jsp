@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <script language="javascript">
 //用于弹出窗口，将服务器返回的数据提交，本处用于账户提交后的状态
-        function alert_myMessage(){
+     function alert_myMessage(){
            var message="${requestScope.myMessage}";
            if(message!=""){
               alert(message);
@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         }
 	$(function(){
 	 //用于弹出窗口，将服务器返回的数据提交，本处用于账户提交后的状态
-	        alert_myMessage();
+	        //alert_myMessage();
 	        
 	      //不在任何frame里面显示该页面
 	    if(self.location!=top.location){
@@ -43,10 +43,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 $("#myForm").serialize(),
                 function (data) {
                 if(data.status==1){
-                    alert("登录成功");
+                   // alert("登录成功");
                     window.location.href="<%=basePath%>backstage/index"
-				}
+				}else{
                     alert(data.myMessage);
+				}
+
                 }
             );
 
