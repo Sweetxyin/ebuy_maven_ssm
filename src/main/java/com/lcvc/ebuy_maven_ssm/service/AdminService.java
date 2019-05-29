@@ -37,7 +37,7 @@ public interface AdminService {
 	 * 将新密码保存到数据库中
 	 * @return true表示密码更改成功，false表示密码更改失败
 	 */
-    public boolean updatePassword(String newPass,Integer id);
+   boolean updatePassword(String newPass,Integer id);
 
 
     /**
@@ -46,13 +46,13 @@ public interface AdminService {
      * 1、修改后的账户不能与其他账户的账户名重名
      * @return flash表示修改失败， true表示修改成功
      */
-    public boolean updateAdmin(Admin admin);
+    boolean updateAdmin(Admin admin);
 
     /**
      * 返回所有的管理账户集合
      * @return 以list方式返回
      */
-    public List<Admin> getAdminList();
+    List<Admin> getAdminList();
 
 
     /**
@@ -61,31 +61,31 @@ public interface AdminService {
      * @param adminId 执行删除的管理账户
      * @return flash表示删除失败， true表示删除成功
      */
-    public boolean deleteAdmin(Integer id,Integer adminId);
+     boolean deleteAdmin(Integer id,Integer adminId);
     /**
      * 查找在数据库中和指定用户名重名的个数（用于账户编辑）
      * @param username 用户名
      * @param id 主键
      * @return ture表示存在重名账户，false表示不存在
      */
-    public boolean existsAdmin(String username,Integer id);
+    boolean existsAdmin(String username,Integer id);
 
     /**
      *判断账户名是否存在（用于创建新账户的时候）
      * @param username
      * @return true表示存在，false表示存在
      */
-    public boolean existsUsername(String username);
+     boolean existsUsername(String username);
     /**
      * 将账户信息存入数据库
      * @param admin
      * @return true表示保存成功，false表示保存失败
      */
 
-    public boolean saveAdmin(Admin admin);
+     boolean saveAdmin(Admin admin);
 
 
-     public Admin getAdmin(Integer id);
+     Admin getAdmin(Integer id);
 
 
 }

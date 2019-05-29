@@ -5,11 +5,14 @@ import com.lcvc.ebuy_maven_ssm.service.AdminService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 public class AdminManageController {
@@ -24,12 +27,14 @@ public class AdminManageController {
 	}
 
 	//执行删除管理员操作
+	@ResponseBody
 	@RequestMapping(value = "/backstage/adminmanage/doDeleteAdmin", method = RequestMethod.GET)
-	public String doDeleteAdmin(HttpServletRequest request, HttpSession session,Integer id) {
+	public Map<String,Object> doDeleteAdmin(HttpSession session, Integer id) {
+		Map<String, Object> map = new HashMap<String, Object>();
 		Admin admin=(Admin)session.getAttribute("admin");
 		adminService.deleteAdmin(id,admin.getId());
-		request.setAttribute("list",adminService.getAdminList());
-		return "/jsp/backstage/adminmanage/adminmanage.jsp";
+		map.put("status", 1);
+		return map;
 	}
 
 	//跳转到管理员添加页面

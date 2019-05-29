@@ -2,6 +2,7 @@ package com.lcvc.ebuy_maven_ssm.service.impl;
 
 import com.lcvc.ebuy_maven_ssm.dao.CustomerDao;
 import com.lcvc.ebuy_maven_ssm.model.Customer;
+import com.lcvc.ebuy_maven_ssm.service.CustomerService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -9,24 +10,17 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class CustomerService {
+public class CustomerServiceImpl implements CustomerService{
 
     @Resource
     private CustomerDao customerDao;
 
-    /**
-     * 返回所有的管理账户集合
-     * @return 以list方式返回
-     */
+
     public List<Customer> getCustomerList(){
         return customerDao.getCustomerList();
     }
 
-    /**
-     * 删除管理员
-     * @param id 被删除的账户id
-     * @return flash表示删除失败， true表示删除成功
-     */
+
     public boolean deleteCustomer(Integer id){
         Boolean status=false;//默认删除失败
         if (id!=null){
@@ -38,11 +32,7 @@ public class CustomerService {
         return status;
     }
 
-    /**
-     * 将账户信息存入数据库
-     * @param
-     * @return true表示保存成功，false表示保存失败
-     */
+
 
     public boolean saveCustomer(Customer customer){
         Boolean status=false;//默认添加失败
@@ -55,11 +45,6 @@ public class CustomerService {
         return status;
     }
 
-    /**
-     * 修改产品分类
-     * @param
-     * @return flash表示修改失败， true表示修改成功
-     */
     public boolean updateCustomer(Customer customer){
         Boolean status=false;//默认编辑失败
 
@@ -71,13 +56,15 @@ public class CustomerService {
         return false;
     }
 
-    public Customer getCustomer(Integer id){
-       Customer customer=null;
+    @Override
+    public Customer getCustomer(Integer id) {
+        Customer customer=null;
         if (id!=null){
             customer=customerDao.getCustomer(id);
         }
         return customer;
     }
+
 
 
 

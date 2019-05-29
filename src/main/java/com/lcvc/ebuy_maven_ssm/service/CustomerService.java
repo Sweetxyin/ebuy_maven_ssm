@@ -16,14 +16,14 @@ public interface CustomerService {
      * 返回所有的管理账户集合
      * @return 以list方式返回
      */
-    public List<Customer> getCustomerList();
+    List<Customer> getCustomerList();
 
     /**
      * 删除管理员
      * @param id 被删除的账户id
      * @return flash表示删除失败， true表示删除成功
      */
-    public boolean deleteCustomer(Integer id);
+   boolean deleteCustomer(Integer id);
 
     /**
      * 将账户信息存入数据库
@@ -31,15 +31,17 @@ public interface CustomerService {
      * @return true表示保存成功，false表示保存失败
      */
 
-    public boolean saveCustomer(Customer customer);
+    boolean saveCustomer(Customer customer);
 
     /**
      * 修改产品分类
      * @param
      * @return flash表示修改失败， true表示修改成功
      */
-    public boolean updateCustomer(Customer customer);
+     boolean updateCustomer(Customer customer);
 
+
+     Customer getCustomer(Integer id);
 
 
 

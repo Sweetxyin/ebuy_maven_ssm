@@ -32,7 +32,7 @@ $(document).ready(function(){
   $(".tip").fadeOut(100);
 });
 
-    $("a[name='deleteProduct']").click(function () {
+  /*  $("a[name='deleteProduct']").click(function () {
         var url=$(this).attr("href");
         var name=$(this).attr("alt")
         if (window.confirm("确认删除该账户("+name+")吗？")){
@@ -40,6 +40,23 @@ $(document).ready(function(){
         }else {
             return false;//不执行链接的跳转
         }
+    });*/
+
+    $("a[name='deleteProductType']").click(function () {
+        $this=$(this);
+        var name=$(this).attr("id");
+        if(window.confirm("确认删除该账户("+name+")吗？删除后无法恢复！")){
+            var url=$(this).attr("href");
+            $.get(url,
+                function (data) {
+                    if(data.status==1){
+                        //alert("删除成功");
+                        $this.parent().parent().remove();
+                    }
+                }
+            );
+        }
+        return false;
     });
 });
 
@@ -111,7 +128,7 @@ $(document).ready(function(){
             <td>${producttype.orderNum}</td>
             <td>${producttype.orderNum}</td>
         <td><a href="<%=basePath%>backstage/producttype/toUpdateProductType?id=${producttype.id}" class="tablelink">修改</a>
-            <a id="${producttype.name}" name="deleteProduct" alt="${producttype.name}" href="<%=basePath%>backstage/producttype/doDeleteProductType?id=${producttype.id}" class="tablelink"> 删除</a></td>
+            <a id="${producttype.name}" name="deleteProductType" alt="${producttype.name}" href="<%=basePath%>backstage/producttype/doDeleteProductType?id=${producttype.id}" class="tablelink"> 删除</a></td>
         </tr>
         </c:forEach>
 

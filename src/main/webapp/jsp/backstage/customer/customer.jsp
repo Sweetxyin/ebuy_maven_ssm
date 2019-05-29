@@ -32,7 +32,7 @@ $(document).ready(function(){
   $(".tip").fadeOut(100);
 });
 
-    $("a[name='deleteCustomer']").click(function () {
+   /* $("a[name='deleteCustomer']").click(function () {
         var url=$(this).attr("href");
         var username=$(this).attr("id")
         if (window.confirm("确认删除该账户("+username+")吗？")){
@@ -40,6 +40,23 @@ $(document).ready(function(){
         }else {
             return false;//不执行链接的跳转
         }
+    });*/
+
+    $("a[name='deleteCustomer']").click(function () {
+        $this=$(this);
+        var username=$(this).attr("id");
+        if(window.confirm("确认删除该账户("+username+")吗？删除后无法恢复！")){
+            var url=$(this).attr("href");
+            $.get(url,
+                function (data) {
+                    if(data.status==1){
+                        //alert("删除成功");
+                        $this.parent().parent().remove();
+                    }
+                }
+            );
+        }
+        return false;
     });
 });
 
