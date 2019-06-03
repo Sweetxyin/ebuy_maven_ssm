@@ -24,11 +24,15 @@ public class ProductController {
 	private ProductService productService;
 
 
-
 	//跳转到产品管理页面
 	@RequestMapping(value = "/backstage/product/toProduct", method = RequestMethod.GET)
-	public String toProduct(HttpServletRequest request) {
-		request.setAttribute("list",productService.getProductList());
+	public String toProduct(Model model, Integer page) {
+		if (page==null){
+			page=1;
+		}
+		model.addAttribute("list",productService.getProductList(page));
+		model.addAttribute("page",page);
+		model.addAttribute("maxPage",productService.maxPage());
 		return "/jsp/backstage/product/product.jsp";
 	}
 	//执行删除产品操作
@@ -71,12 +75,6 @@ public class ProductController {
 		return "/jsp/backstage/product/productupdate.jsp";
 	}
 
-	@RequestMapping(value = "/backstage/product/toMangeProduct", method = RequestMethod.GET)
-	public String toMangeProduct(Model model, Integer page){
-	  model.addAttribute("list",productService.getProductList(page));
-	  model.addAttribute("page",page);
-	  model.addAttribute("maxPage",productService.maxPage());
-		return "/jsp/backstage/product/product.jsp";
-	}
+
 
 }

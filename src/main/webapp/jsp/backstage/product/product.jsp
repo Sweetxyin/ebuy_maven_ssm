@@ -166,11 +166,20 @@ $(document).ready(function(){
     	<div class="message">共<i class="blue">${fn:length(list)}</i>条记录，当前显示第&nbsp;<i class="blue">${requestScope.page}</i>页,共
         <i class="blue">${requestScope.maxPage}</i>页</div>
 
+        <ul class="paginList" >
+            <li class="paginItem"><a href="<%=basePath%>/backstage/product/toProduct?page=1">首页</a></li>
+
+            <li class="paginItem"><a href="<%=basePath%>/backstage/product/toProduct?page=${requestScope.page-1}" >上一页</a></li>
+
+            <li class="paginItem"><a href="<%=basePath%>/backstage/product/toProduct?page=${requestScope.page+1}">下一页</a></li>
+
+            <li class="paginItem"><a href="<%=basePath%>/backstage/product/toProduct?page=${requestScope.maxPage}" >尾页</a></li>
+        </ul>
     </div>
-    <ul class="painList">
-        <li class="paginItem">首页</li>
-    </ul>
-    
+
+
+
+
     <div class="tip">
     	<div class="tiptop"><span>提示信息</span><a></a></div>
         

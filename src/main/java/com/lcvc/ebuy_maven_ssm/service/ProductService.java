@@ -59,5 +59,4 @@ public interface ProductService {
      List<Product> getProductList(Integer page);
 
      int maxPage();
-     int total();
 }

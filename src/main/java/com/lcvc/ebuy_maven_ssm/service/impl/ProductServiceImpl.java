@@ -94,10 +94,6 @@ public class ProductServiceImpl implements ProductService {
         return maxPage;
     }
 
-    @Override
-    public int total() {
-        return 0;
-    }
 
 
 }
