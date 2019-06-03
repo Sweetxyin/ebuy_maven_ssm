@@ -29,6 +29,17 @@ public class ProductDaoTest extends SpringJunitTest {
         System.out.println(productDao.getProductList());
     }
 
+    @Test
+    public void testGetPartlst(){
+        List<Product> list=productDao.getPartlst(10,10);
+        for (int i=0;i<list.size();i++){
+            Product product=list.get(i);
+            System.out.println(product.getName()+"\t");
+            System.out.println(product.getProductType().getName()+"\t");
+            System.out.println();
 
+        }
+
+    }
 
 }

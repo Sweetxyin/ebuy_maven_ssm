@@ -20,6 +20,8 @@ public interface ProductService {
      List<Product> getProductList();
 
 
+
+
     /**
      * 删除产品
      * @param id 被删除的产品id
@@ -49,5 +51,13 @@ public interface ProductService {
      */
      Product getProduct(Integer id);
 
+    /**
+     * 执行数据库分页操作
+     * @param page 页面
+     * @return
+     */
+     List<Product> getProductList(Integer page);
 
+     int maxPage();
+     int total();
 }

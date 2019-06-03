@@ -14,7 +14,9 @@
 	<select id="getProductList" resultMap="product">
 		select * from product order by orderNum asc
 	</select>
-
+    <select id="total" resultType="int">
+		select count(id) from product
+	</select>
 	<delete id="deleteProduct" >
 		delete from product where id=#{id}
 	</delete>
@@ -41,5 +43,8 @@
 	</update>
 	<select id="getProduct" resultType="Product">
 		select * from product where id=#{id}
+	</select>
+	<select id="getPartlst" resultMap="product">
+		select * from product order by id asc limit #{offset},#{length};
 	</select>
 </mapper>

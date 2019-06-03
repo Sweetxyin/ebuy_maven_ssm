@@ -65,5 +65,39 @@ public class ProductServiceImpl implements ProductService {
         return product;
     }
 
+    @Override
+    public List<Product> getProductList(Integer page) {
+        int pagesize=10;//每页显示10条记录
+        if (page==null){
+            page=1;
+        }else {
+            if (page<1){
+                page=1;
+            }
+        }
+        int offset=(page-1)*pagesize+1;//数据库开始的记录
+        //int end=offset+pagesize-1;//数据库结束的记录
+        return productDao.getPartlst(offset-1,pagesize);
+    }
+
+    @Override
+    public int maxPage() {
+        int maxPage=0;//默认为0
+        int pagesize=10;//每页显示10条记录
+        int total=productDao.total();//最大记录数
+        if (total%pagesize==0){//%表示取余数，比如35%10=5
+            maxPage=total/pagesize;
+
+        }else {
+            maxPage=total/pagesize+1;
+        }
+        return maxPage;
+    }
+
+    @Override
+    public int total() {
+        return 0;
+    }
+
 
 }

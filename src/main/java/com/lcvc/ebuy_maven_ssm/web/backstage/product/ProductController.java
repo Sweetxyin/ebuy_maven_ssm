@@ -6,6 +6,7 @@ import com.lcvc.ebuy_maven_ssm.model.ProductType;
 import com.lcvc.ebuy_maven_ssm.service.ProductService;
 import com.lcvc.ebuy_maven_ssm.service.ProductTypeService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -70,5 +71,12 @@ public class ProductController {
 		return "/jsp/backstage/product/productupdate.jsp";
 	}
 
+	@RequestMapping(value = "/backstage/product/toMangeProduct", method = RequestMethod.GET)
+	public String toMangeProduct(Model model, Integer page){
+	  model.addAttribute("list",productService.getProductList(page));
+	  model.addAttribute("page",page);
+	  model.addAttribute("maxPage",productService.maxPage());
+		return "/jsp/backstage/product/product.jsp";
+	}
 
 }

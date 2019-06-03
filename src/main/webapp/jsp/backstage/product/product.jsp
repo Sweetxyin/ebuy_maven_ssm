@@ -163,10 +163,13 @@ $(document).ready(function(){
     
    
     <div class="pagin">
-    	<div class="message">共<i class="blue">${fn:length(list)}</i>条记录<%--，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页--%></div>
+    	<div class="message">共<i class="blue">${fn:length(list)}</i>条记录，当前显示第&nbsp;<i class="blue">${requestScope.page}</i>页,共
+        <i class="blue">${requestScope.maxPage}</i>页</div>
 
     </div>
-    
+    <ul class="painList">
+        <li class="paginItem">首页</li>
+    </ul>
     
     <div class="tip">
     	<div class="tiptop"><span>提示信息</span><a></a></div>
