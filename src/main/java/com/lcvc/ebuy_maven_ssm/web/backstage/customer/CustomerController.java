@@ -24,8 +24,8 @@ public class CustomerController {
 
 	//跳转到客户管理页面
 	@RequestMapping(value = "/backstage/customer/toCustomer", method = RequestMethod.GET)
-	public String toCustomer(HttpServletRequest request) {
-		request.setAttribute("list",customerService.getCustomerList());
+	public String toCustomer(Model model) {
+		model.addAttribute("list",customerService.getCustomerList());
 		return "/jsp/backstage/customer/customer.jsp";
 	}
 
@@ -37,7 +37,7 @@ public class CustomerController {
 
 	//执行添加客户操作
 	@RequestMapping(value = "/backstage/customer/doAddCustomer", method = RequestMethod.POST)
-	public String doAddCustomer(HttpServletRequest request, Model model, HttpSession session, Customer customer) {
+	public String doAddCustomer( Model model, HttpSession session, Customer customer) {
 		customer.setUsername(customer.getUsername().trim());
 		customer.setName(customer.getName().trim());
 		if (customer.getUsername().length()==0){
@@ -56,11 +56,11 @@ public class CustomerController {
 	//执行删除客户操作
 	@ResponseBody
 	@RequestMapping(value = "/backstage/customer/doDeleteCustomer", method = RequestMethod.GET)
-	public Map<String,Object> doDeleteCustomer(HttpServletRequest request, HttpSession session, Integer id) {
+	public Map<String,Object> doDeleteCustomer(Model model, HttpSession session, Integer id) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		Customer customer=(Customer) session.getAttribute("customer") ;
 		customerService.deleteCustomer(id);
-		request.setAttribute("list",customerService.getCustomerList());
+		model.addAttribute("list",customerService.getCustomerList());
 		map.put("status", 1);
 		return map;
 
@@ -69,23 +69,23 @@ public class CustomerController {
 
 	//跳转到客户信息修改页面
 	@RequestMapping(value = "/backstage/customer/toUpdateCustomer", method = RequestMethod.GET)
-	public String toUpdateCustomer(HttpServletRequest request,Integer id) {
-		request.setAttribute("customer",customerService.getCustomer(id));
+	public String toUpdateCustomer(Model model,Integer id) {
+		model.addAttribute("customer",customerService.getCustomer(id));
 		return "/jsp/backstage/customer/customerupdate.jsp";
 	}
 	//执行修改客户的基本信息
 	@RequestMapping(value = "/backstage/customer/doUpdateCustomer", method = RequestMethod.POST)
-	public String doUpdateCustomer(HttpSession session,HttpServletRequest request,Customer customer){
+	public String doUpdateCustomer(HttpSession session,Model model,Customer customer){
 		customer.setUsername(customer.getUsername().trim());
 		customer.setName(customer.getName().trim());
 		if (customer.getUsername().length()==0){
-			request.setAttribute("myMessage", "编辑客户信息失败：账户名不能为空");
+			model.addAttribute("myMessage", "编辑客户信息失败：账户名不能为空");
 		}else if (customer.getName().length()==0){
-			request.setAttribute("myMessage", "编辑客户信息失败：姓名为空");
+			model.addAttribute("myMessage", "编辑客户信息失败：姓名为空");
 		}
 		else {
 			customerService.updateCustomer(customer);
-			request.setAttribute("myMessage", "修改客户信息成功！");
+			model.addAttribute("myMessage", "修改客户信息成功！");
 		}
 		return "/jsp/backstage/customer/customerupdate.jsp";
 	}

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import com.lcvc.ebuy_maven_ssm.model.Admin;
 import com.lcvc.ebuy_maven_ssm.service.AdminService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -22,20 +23,20 @@ public class AdminController {
 	
 	@RequestMapping(value = "/backstage/admin/doUpdatePassword", method = RequestMethod.POST)
 	public String doUpdatePassword(String oldPass,String newPass,String confirmPass,HttpSession session
-			,HttpServletRequest request){
+			,Model model){
 		Admin admin=(Admin)session.getAttribute("admin");
 		if(adminService.login(admin.getUsername(), oldPass)!=null){//如果原密码正确
 			if (newPass.equals("")){
-				request.setAttribute("myMessage", "密码修改失败：新密码不能为空");
+				model.addAttribute("myMessage", "密码修改失败：新密码不能为空");
 			}else if(newPass.equals(confirmPass)){//如果新密码和确认密码相同
 				//保存新密码
 				adminService.updatePassword(newPass, admin.getId());
-				request.setAttribute("myMessage", "密码修改成功");
+				model.addAttribute("myMessage", "密码修改成功");
 			}else{//如果不相同
-				request.setAttribute("myMessage", "密码修改失败：新密码和确认密码不一致");
+				model.addAttribute("myMessage", "密码修改失败：新密码和确认密码不一致");
 			}
 		}else{//如果原密码错误
-			request.setAttribute("myMessage", "密码修改失败：原密码不正确");
+			model.addAttribute("myMessage", "密码修改失败：原密码不正确");
 		}
 		return "/jsp/backstage/admin/passwordupdate.jsp";
 	}
@@ -47,21 +48,21 @@ public class AdminController {
 	}
 	//执行修改管理账户的基本信息
 	@RequestMapping(value = "/backstage/admin/doUpdateAdmin", method = RequestMethod.POST)
-	public String doUpdateAdmin(Admin admin,HttpSession session,HttpServletRequest request){
+	public String doUpdateAdmin(Admin admin,HttpSession session,Model model){
 		Admin adminSession=(Admin)session.getAttribute("admin");
 		if (admin.getUsername().equals("")){
-			request.setAttribute("myMessage","账户名不能为空");
+			model.addAttribute("myMessage","账户名不能为空");
 		}else if (admin.getName().equals("")){
-			request.setAttribute("myMessage","网名不能为空");
+			model.addAttribute("myMessage","网名不能为空");
 		}else if (adminService.existsAdmin(admin.getUsername(),adminSession.getId())==true){
-			request.setAttribute("myMessage","账户名重名");
+			model.addAttribute("myMessage","账户名重名");
 		}else {
 			admin.setId(adminSession.getId());
 			if (adminService.updateAdmin(admin)){
 				adminSession.setUsername(admin.getUsername());
 				adminSession.setName(admin.getName());
 			}
-			request.setAttribute("myMessage", "基本信息修改成功");
+			model.addAttribute("myMessage", "基本信息修改成功");
 		}
 		return "/jsp/backstage/admin/adminupdate.jsp";
 	}

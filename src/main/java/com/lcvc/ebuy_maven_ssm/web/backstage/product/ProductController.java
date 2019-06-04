@@ -24,11 +24,15 @@ public class ProductController {
 	private ProductService productService;
 
 
-	//跳转到产品管理页面
+	//跳转到产品管理页面,并执行分页操作
 	@RequestMapping(value = "/backstage/product/toProduct", method = RequestMethod.GET)
 	public String toProduct(Model model, Integer page) {
-		if (page==null){
+		if (page==null){//如果页面为空，就显示第一页
 			page=1;
+		}else {
+			if (page < 1) {
+				page = 1;
+			}
 		}
 		model.addAttribute("list",productService.getProductList(page));
 		model.addAttribute("page",page);
@@ -62,15 +66,15 @@ public class ProductController {
 
 	//跳转到产品管理修改页面
 	@RequestMapping(value = "/backstage/product/toUpdateProduct", method = RequestMethod.GET)
-	public String toUpdateProduct(HttpServletRequest request,Integer id) {
-		request.setAttribute("product",productService.getProduct(id));
+	public String toUpdateProduct(Model model,Integer id) {
+		model.addAttribute("product",productService.getProduct(id));
 		return "/jsp/backstage/product/productupdate.jsp";
 	}
 	//执行修改产品管理的基本信息
 	@RequestMapping(value = "/backstage/product/doUpdateProduct", method = RequestMethod.POST)
-	public String doUpdateProduct(HttpSession session,HttpServletRequest request,Product product){
+	public String doUpdateProduct(HttpSession session,Model model,Product product){
 		  productService.updateProduct(product);
-			request.setAttribute("myMessage", "修改产品分类成功");
+		model.addAttribute("myMessage", "修改产品分类成功");
 
 		return "/jsp/backstage/product/productupdate.jsp";
 	}

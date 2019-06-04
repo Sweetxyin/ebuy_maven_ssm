@@ -67,4 +67,19 @@ public interface AdminDao {
     Admin getAdmin(int id);
 
 
+    /**
+     * 分页显示数据库记录
+     * @param offset 记录开始位置
+     * @param length 偏移量
+     * @return
+     */
+    List<Admin> getPartlst(@Param(value = "offset")int offset,@Param(value = "length")int length);
+    int maxPage();
+
+    /**
+     *读取所有产品的记录总数
+     * @return
+     */
+    int total();
+
 }

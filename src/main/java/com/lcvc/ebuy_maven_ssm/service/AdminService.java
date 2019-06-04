@@ -88,4 +88,13 @@ public interface AdminService {
      Admin getAdmin(Integer id);
 
 
+    /**
+     * 执行数据库分页操作
+     * @param page 页面
+     * @return
+     */
+    List<Admin> getAdminList(Integer page);
+
+    int maxPage();
+
 }

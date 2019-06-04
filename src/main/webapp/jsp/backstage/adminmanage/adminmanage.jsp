@@ -121,12 +121,22 @@ $(document).ready(function(){
 
         </tbody>
     </table>
-    
-   
-    <div class="pagin">
-    	<div class="message">共<i class="blue">${fn:length(list)}</i>条记录<%--，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页--%></div>
 
-    </div>
+
+        <div class="pagin">
+            <div class="message">共<i class="blue">${fn:length(list)}</i>条记录，当前显示第&nbsp;<i class="blue">${requestScope.page}</i>页,共
+                <i class="blue">${requestScope.maxPage}</i>页</div>
+
+            <ul class="paginList" >
+                <li class="paginItem"><a href="<%=basePath%>/backstage/adminmanage/toManageAdmin?page=1">首页</a></li>
+
+                <li class="paginItem"><a href="<%=basePath%>/backstage/adminmanage/toManageAdmin?page=${requestScope.page-1}" >上一页</a></li>
+
+                <li class="paginItem"><a href="<%=basePath%>/backstage/adminmanage/toManageAdmin?page=${requestScope.page+1}">下一页</a></li>
+
+                <li class="paginItem"><a href="<%=basePath%>/backstage/adminmanage/toManageAdmin?page=${requestScope.maxPage}" >尾页</a></li>
+            </ul>
+        </div>
     
     
     <div class="tip">

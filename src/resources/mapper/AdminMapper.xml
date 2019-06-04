@@ -29,6 +29,9 @@
 	<select id="getAdminList" resultType="Admin">
 		select * from admin order by id asc
 	</select>
+	<select id="total" resultType="int">
+		select count(id) from admin
+	</select>
 	<delete id="deleteAdmin" >
 		delete from admin where id=#{id}
 	</delete>
@@ -38,6 +41,8 @@
 	<select id="getAdmin" resultType="Admin">
 		select * from admin where id=#{id}
 	</select>
-
+	<select id="getPartlst" resultType="Admin">
+		select * from admin order by id asc limit #{offset},#{length}
+	</select>
 
 </mapper>
