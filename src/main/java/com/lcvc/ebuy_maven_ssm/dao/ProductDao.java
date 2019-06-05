@@ -59,4 +59,11 @@ public interface ProductDao {
      * @return
      */
     int total();
+
+    /**
+     * 从数据库中读取指定的产品对象
+     * @param id
+     * @return
+     */
+    Product get(int id);
 }

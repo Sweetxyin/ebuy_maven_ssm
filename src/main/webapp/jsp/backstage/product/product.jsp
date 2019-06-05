@@ -126,7 +126,7 @@ $(document).ready(function(){
         <c:forEach var="product" items="${requestScope.list}">
             <tr>
                 <td><input name="" type="checkbox" value=""/></td>
-                <td><img src="${product.picUrl}"/> </td>
+                <td><img src="<%=basePath%>${product.picUrl}" style="width:80px;height: 60px"/> </td>
                 <td>${product.name}
                        <p style="color: #7f7f7f; line-height: 13px;"> 发布时间：<fmt:formatDate value="${product.createTime}" pattern="yyyy年MM月dd日 HH:mm" /></p>
                 </td>

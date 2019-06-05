@@ -47,4 +47,7 @@
 	<select id="getPartlst" resultMap="product">
 		select * from product order by id asc limit #{offset},#{length}
 	</select>
+	<select id="get" resultMap="product">
+		select * from product where id=#{id}
+	</select>
 </mapper>
