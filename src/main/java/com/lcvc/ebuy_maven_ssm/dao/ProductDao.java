@@ -78,4 +78,10 @@ public interface ProductDao {
      * @return
      */
     List<Product> getHotProductList(int pageSize);
+
+    /**
+     * 返回限时秒杀的N条记录
+     * @return
+     */
+    List<Product> getTimerProduct(int pageSize);
 }

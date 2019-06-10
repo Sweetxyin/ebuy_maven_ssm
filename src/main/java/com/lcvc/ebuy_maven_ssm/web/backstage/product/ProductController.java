@@ -22,8 +22,6 @@ public class ProductController {
 
 	@Resource
 	private ProductService productService;
-
-
 	//跳转到产品管理页面,并执行分页操作
 	@RequestMapping(value = "/backstage/product/toProduct", method = RequestMethod.GET)
 	public String toProduct(Model model, Integer page) {
@@ -39,6 +37,8 @@ public class ProductController {
 		model.addAttribute("maxPage",productService.maxPage());
 		return "/jsp/backstage/product/product.jsp";
 	}
+
+
 	//执行删除产品操作
 	@ResponseBody
 	@RequestMapping(value = "/backstage/product/doDeleteProduct", method = RequestMethod.GET)

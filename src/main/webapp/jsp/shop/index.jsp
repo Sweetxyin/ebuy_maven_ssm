@@ -37,7 +37,7 @@
 			<div class="block">
 				<div class="title">
 					<label class="new">今日新品</label>
-					<a href="<%=basePath%>jsp/shop/shoplists.html">更多&gt;&gt;</a>
+					<a href="<%=basePath%>shop/toProduct">更多&gt;&gt;</a>
 				</div>
 				<div class="block-wrap">
 					<c:forEach var="product" items="${requestScope.newProduct}">
@@ -67,7 +67,7 @@
 			<div class="block">
 				<div class="title">
 					<label class="hot">热门订单</label>
-					<a href="<%=basePath%>jsp/shop/shoplists.html">更多&gt;&gt;</a>
+					<a href="<%=basePath%>shop/toProduct">更多&gt;&gt;</a>
 				</div>
 				<div class="block-wrap">
 					<c:forEach var="product" items="${requestScope.hotProduct}">
@@ -97,7 +97,7 @@
 			<div class="block">
 				<div class="title noborder">
 					<label class="act">活动推介</label>
-					<a href="<%=basePath%>jsp/shop/shoplists.html" style="display: none;">更多&gt;&gt;</a>
+					<a href="<%=basePath%>shop/toProduct" style="display: none;">更多&gt;&gt;</a>
 				</div>
 				<div class="block-wrap border">
 					<div class="crumb">
@@ -107,9 +107,16 @@
 							<li><a href="#">特惠</a></li>
 							<li><a href="#">热门排行</a></li>
 						</ul>
-						<a href="<%=basePath%>jsp/shop/shoplists.html">更多&gt;&gt;</a>
+						<a href="<%=basePath%>jsp/shop/shoplists.jsp">更多&gt;&gt;</a>
 					</div>
+					<c:forEach var="product" items="${requestScope.timerProduct}">
 					<div class="item">
+						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img alt="" style="width: 250px;height: 180px;" src="<%=basePath%>${product.picUrl}"></a>
+						<label><em>${product.price}</em><span>${product.originalPrice}</span>67人付款</label>
+						<h3>${product.name}</h3>
+					</div>
+					</c:forEach>
+					<%--<div class="item">
 						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img alt="" src="<%=basePath%>jsp/shop/resources/images/foods/01.jpg"></a>
 						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
 						<h3>回锅肉炒西芹</h3>
@@ -123,12 +130,7 @@
 						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img alt="" src="<%=basePath%>jsp/shop/resources/images/foods/01.jpg"></a>
 						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
 						<h3>回锅肉炒西芹</h3>
-					</div>
-					<div class="item">
-						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img alt="" src="<%=basePath%>jsp/shop/resources/images/foods/01.jpg"></a>
-						<label><em>￥18.00</em><span>￥20.00</span>67人付款</label>
-						<h3>回锅肉炒西芹</h3>
-					</div>
+					</div>--%>
 				</div>
 			</div>
 			<br>

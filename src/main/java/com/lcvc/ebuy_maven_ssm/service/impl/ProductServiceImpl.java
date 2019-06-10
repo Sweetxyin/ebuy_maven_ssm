@@ -104,5 +104,10 @@ public class ProductServiceImpl implements ProductService {
         return productDao.getHotProductList(pageSize);
     }
 
+    @Override
+    public List<Product> getTimerProduct(int pageSize) {
+        return productDao.getTimerProduct(pageSize);
+    }
+
 
 }
