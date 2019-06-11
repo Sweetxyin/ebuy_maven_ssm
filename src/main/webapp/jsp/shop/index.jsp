@@ -42,7 +42,7 @@
 				<div class="block-wrap">
 					<c:forEach var="product" items="${requestScope.newProduct}">
 					<div class="item">
-						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img alt="" style="width: 250px;height: 180px;" src="<%=basePath%>${product.picUrl}<%--jsp/shop/resources/images/foods/01.jpg--%>"></a>
+						<a href="<%=basePath%>shop/toShopDetial"><img alt="" style="width: 250px;height: 180px;" src="<%=basePath%>${product.picUrl}<%--jsp/shop/resources/images/foods/01.jpg--%>"></a>
 						<label><em> ${product.price}</em><span>${product.originalPrice}</span>67人付款</label>
 						<h3>${product.name}</h3>
 					</div>
@@ -72,7 +72,7 @@
 				<div class="block-wrap">
 					<c:forEach var="product" items="${requestScope.hotProduct}">
 					<div class="item">
-						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img alt="" style="width: 250px;height: 180px;" src="<%=basePath%>${product.picUrl}<%--jsp/shop/resources/images/foods/01.jpg--%>"></a>
+						<a href="<%=basePath%>shop/toShopDetial"><img alt="" style="width: 250px;height: 180px;" src="<%=basePath%>${product.picUrl}<%--jsp/shop/resources/images/foods/01.jpg--%>"></a>
 						<label><em>${product.price}</em><span>${product.originalPrice}</span>67人付款</label>
 						<h3>${product.name}</h3>
 					</div>
@@ -111,7 +111,7 @@
 					</div>
 					<c:forEach var="product" items="${requestScope.timerProduct}">
 					<div class="item">
-						<a href="<%=basePath%>jsp/shop/shopdetial.html"><img alt="" style="width: 250px;height: 180px;" src="<%=basePath%>${product.picUrl}"></a>
+						<a href="<%=basePath%>shop/toShopDetial"><img alt="" style="width: 250px;height: 180px;" src="<%=basePath%>${product.picUrl}"></a>
 						<label><em>${product.price}</em><span>${product.originalPrice}</span>67人付款</label>
 						<h3>${product.name}</h3>
 					</div>

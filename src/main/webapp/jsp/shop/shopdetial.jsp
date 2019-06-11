@@ -1,12 +1,18 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <html lang="zh-CN">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>橙汁园餐厅 -- 详情</title>
-<link href="resources/css/shopdetail.css" rel="stylesheet" type="text/css">
+<link href="<%=basePath%>jsp/shop/resources/css/shopdetail.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div class="wrap">
-		<iframe src="header.html" style="height: 168px;"></iframe>
+		<iframe src="<%=basePath%>jsp/shop/header.html" style="height: 168px;"></iframe>
 		<div class="content">
 			<div class="block">
 				<div class="crumb">
@@ -19,7 +25,8 @@
 					</ul>
 				</div>
 				<div class="block-wrap">
-					<h3>回锅肉炒西芹片</h3>
+					<h3>产品名称：${requestScope.product.name}</h3>
+					<h3>${requestScope.product.id}</h3>
 					<div>
 						<div class="images">
 							<div class="img-wrap">
@@ -35,7 +42,7 @@
 						<div class="detials">
 							<ul>
 								<li class="hot">优惠活动：11:30-14:30点餐7折</li>
-								<li>促销价：<em class="hot">￥12.00</em></li>
+								<li>促销价：<em class="hot">${requestScope.product.price}</em></li>
 								<li>
 									<div class="item-wrap">
 										<div class="item">原价：<span>￥15.00</span></div>
@@ -70,7 +77,7 @@
 			</div>
 		</div>
 		<hr color="#e3e3e2">
-		<iframe src="footer.html" style="height: 120px;"></iframe>
+		<iframe src="<%=basePath%>jsp/shop/footer.html" style="height: 120px;"></iframe>
 	</div>
 </body>
 </html>
