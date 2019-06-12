@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div class="wrap">
-		<iframe src="<%=basePath%>jsp/shop/header.html" style="height: 168px;"></iframe>
+		<iframe src="<%=basePath%>jsp/shop/header.jsp" style="height: 168px;"></iframe>
 		<div class="content">
 			<div class="block">
 				<div class="crumb">

@@ -20,8 +20,10 @@ public class AdminServiceImpl implements AdminService{
 
 
     public Admin login(String username, String password){
-        //将密码加密后再进行比对
-        password= SHA.getResult(password);
+        if (password.length()!=32){
+            //将密码加密后再进行比对
+            password= SHA.getResult(password);
+        }
         Admin admin=adminDao.login(username, password);
         return admin;
     }

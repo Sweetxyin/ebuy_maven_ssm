@@ -1,3 +1,9 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <html lang="zh-CN">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -7,9 +13,9 @@
 <body>
 	<div class="header">
 		<div class="toolbar">
-			<a href="index.jsp" target="top">&nbsp;首页&nbsp;</a>
+			<a href="<%=basePath%>shop/index" target="top">&nbsp;首页&nbsp;</a>
 			<a href="signin.html" target="top">&nbsp;登录/注册&nbsp;</a>
-			<a href="shopcart.html" target="top">&nbsp;购物车&nbsp;</a>
+			<a href="<%=basePath%>shop/toShopCart" target="top">&nbsp;购物车&nbsp;</a>
 		</div>
 		<div class="content">
 			<img alt="" src="resources/images/logo.png">
@@ -21,7 +27,7 @@
 		<div class="menu">
 			<ul>
 				<li class="cur"><a href="index.jsp" target="top">全部分类</a></li>
-				<li><a href="shop/index" target="top">首页</a></li>
+				<li><a href="<%=basePath%>shop/index" target="top">首页</a></li>
 				<li><a href="shop/toProduct" target="top" style="color: #d2364c;">今日新品</a></li>
 				<li><a href="shop/toProduct" target="top">热门订单</a></li>
 				<li><a href="shoplists.html" target="top">限时秒杀</a></li>

@@ -59,4 +59,5 @@
 	<select id="getTimerProduct" resultType="Product">
 		select * from product order by price desc limit 0,#{pageSize}
 	</select>
+
 </mapper>

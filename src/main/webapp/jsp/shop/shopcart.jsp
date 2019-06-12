@@ -1,12 +1,18 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <html lang="zh-CN">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>橙汁园餐厅 -- 购物车</title>
-<link href="resources/css/shopcart.css" rel="stylesheet" type="text/css">
+<link href="<%=basePath%>jsp/shop/resources/css/shopcart.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div class="wrap">
-		<iframe src="header.html" style="height: 118px;"></iframe>
+		<iframe src="<%=basePath%>jsp/shop/header.jsp" style="height: 118px;"></iframe>
 		<div class="content">
 			<div class="thead">
 				<em class="th1">购物车</em>
@@ -21,12 +27,12 @@
 						<input type="checkbox" class="check">
 					</span>
 					<span class="td td2">
-						<a href="shopdetial.html"><img alt="" src="resources/images/foods/41.jpg"></a>
-						<span>干煸四季豆</span>
+						<a href="shopdetial.html"><img alt="" src="<%=basePath%>jsp/shop/resources/images/foods/41.jpg"></a>
+						<span> ${requestScope.product.name}</span>
 					</span>
 					<span class="td td3">
-						<span>15.00</span>
-						<b>12.00</b>
+						<span>${product.originalPrice}</span>
+						<b>${requestScope.product.price}</b>
 					</span>
 					<span class="td td4">
 						<div class="input-wrap">
@@ -42,7 +48,7 @@
 						<a href="#" class="delete">删除</a>
 					</span>
 				</div>
-				<div class="tr">
+				<%--<div class="tr">
 					<span class="td td1">
 						<input type="checkbox" class="check" checked="checked">
 					</span>
@@ -145,7 +151,7 @@
 					<span class="td td6">
 						<a href="#" class="delete">删除</a>
 					</span>
-				</div>
+				</div>--%>
 			</div>
 			<div class="tfoot">
 				<em class="tf tf1">
@@ -167,7 +173,7 @@
 			</div>
 			<hr color="#d2364c">
 		</div>
-		<iframe src="footer.html" style="height: 120px;"></iframe>
+		<iframe src="<%=basePath%>jsp/shop/footer.html" style="height: 120px;"></iframe>
 	</div>
 	<script type="text/javascript">
 		// 获取全选复选框

@@ -12,12 +12,12 @@
 </head>
 <body>
 	<div class="wrap">
-		<iframe src="<%=basePath%>jsp/shop/header.html" style="height: 168px;"></iframe>
+		<iframe src="<%=basePath%>jsp/shop/header.jsp" style="height: 168px;"></iframe>
 		<div class="content">
 			<div class="block">
 				<div class="crumb">
 					<ul>
-						<li><a href="index.jsp">首页</a></li>
+						<li><a href="<%=basePath%>shop/index">首页</a></li>
 						<li><span>/</span></li>
 						<li><a id="types" href="#">今日新品</a></li>
 						<li><span>/</span></li>
@@ -25,18 +25,17 @@
 					</ul>
 				</div>
 				<div class="block-wrap">
-					<h3>产品名称：${requestScope.product.name}</h3>
-					<h3>${requestScope.product.id}</h3>
+					<h3> ${requestScope.product.name} </h3>
 					<div>
 						<div class="images">
 							<div class="img-wrap">
-								<img alr="" src="resources/images/foods/01.jpg">
+								<img alr="" src="<%=basePath%>${product.picUrl}">
 							</div>
 							<ul>
-								<li><a class="item" href="shopdetial.html"><img alr="" src="resources/images/foods/01.jpg"></a></li>
-								<li><a class="item" href="shopdetial.html"><img alr="" src="resources/images/foods/01.jpg"></a></li>
-								<li><a class="item" href="shopdetial.html"><img alr="" src="resources/images/foods/01.jpg"></a></li>
-								<li><a class="item" href="shopdetial.html"><img alr="" src="resources/images/foods/01.jpg"></a></li>
+								<li><a class="item" href="shopdetial.html"><img alr="" src="<%=basePath%>${product.picUrl}"></a></li>
+								<li><a class="item" href="shopdetial.html"><img alr="" src="<%=basePath%>${product.picUrl}"></a></li>
+								<li><a class="item" href="shopdetial.html"><img alr="" src="<%=basePath%>${product.picUrl}"></a></li>
+								<li><a class="item" href="shopdetial.html"><img alr="" src="<%=basePath%>${product.picUrl}"></a></li>
 							</ul>
 						</div>
 						<div class="detials">
@@ -45,28 +44,34 @@
 								<li>促销价：<em class="hot">${requestScope.product.price}</em></li>
 								<li>
 									<div class="item-wrap">
-										<div class="item">原价：<span>￥15.00</span></div>
+										<div class="item">原价：<span>${product.originalPrice}</span></div>
 										<div class="item">累计销量：1320 份</div>
 									</div>
 								</li>
 								<li class="detial-wrap">
 									<label>详情：</label>
 									<div class="detial">
-										“西湖醋鱼”是杭州名菜中的看家菜。如今烹制西湖醋鱼最为有名的是孤山南麓的百年老店“楼外楼”。西湖醋鱼，又称"叔嫂传珍"，传说是古时嫂嫂给小叔烧过一碗加糖加醋的鱼而来的。选用体态适中的草鱼，最好先在清水氽熟，要掌握火候。装盘后淋上糖醋芡汁。成菜色泽红亮，肉质鲜嫩，酸甜可口，略带蟹味。
+										<%--“西湖醋鱼”是杭州名菜中的看家菜。如今烹制西湖醋鱼最为有名的是孤山南麓的百年老店“楼外楼”。西湖醋鱼，又称"叔嫂传珍"，传说是古时嫂嫂给小叔烧过一碗加糖加醋的鱼而来的。选用体态适中的草鱼，最好先在清水氽熟，要掌握火候。装盘后淋上糖醋芡汁。成菜色泽红亮，肉质鲜嫩，酸甜可口，略带蟹味。--%>
+											${product.description}
 									</div>
 								</li>
 								<li class="form-wrap">
-									<form>
+									<form <%--action="<%=basePath%>shop/toShopCart?id=${product.productId}?number=${product.number}" method="post"--%>>
 										数量：
 										<div class="input-wrap">
-											<button class="sub">-</button>
-											<input type="text" class="number" value="1">
-											<button class="add">+</button>
+											<button name="toReduceCart" class="sub">-</button>
+											<input name="numberOfSale" type="text" class="number" value="1">
+											<button name="toAddCart" class="add">+</button>
+											<%--<button class="sub">-</button>
+											<input  type="text" class="number" value="1">
+											<button class="add">+</button>--%>
 										</div> 
-										库存<span class="numbers">100</span>份
+										库存<span class="numbers">${product.number}</span>份
 										<div class="btn-wrap">
-											<button class="buy">立刻购买</button>
-											<button class="add">加入购物车</button>
+											<%--<button class="buy">立刻购买</button>
+											<button class="add">加入购物车</button>--%>
+												<button class="buy" disabled="true">立刻购买</button>
+												<button name="putCart" class="add">加入购物车</button>
 										</div>
 									</form>
 								</li>
