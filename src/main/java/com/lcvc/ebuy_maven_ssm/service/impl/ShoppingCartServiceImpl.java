@@ -14,13 +14,14 @@ public class ShoppingCartServiceImpl implements ShoppingCartService{
     private ProductDao productDao;
     Map<Product,Integer> map=new HashMap<Product, Integer>();//创建购物车，产品对象->购买的产品数量
     @Override
-    public void putProduct(Integer productId, Integer number) {
+    public int putProduct(Integer productId, Integer number) {
         Product product=productDao.get(productId);//从数据库中读取产品对象。注意：此时暂时不考虑对象是否存在
         if (map.containsKey(product)){//如果包含相应商品
             map.put(product,map.get(product)+number);//将商品数量相加
         }else {//如果不包含相应商品
             map.put(product,number);//直接将商品和对应数量放入购物车
         }
+        return productId;
     }
 
     @Override

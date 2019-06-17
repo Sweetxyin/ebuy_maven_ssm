@@ -1,33 +1,39 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <html lang="zh-CN">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>橙汁园餐厅 -- 注册</title>
-<link href="resources/css/signin.css" rel="stylesheet" type="text/css">
+<link href="<%=basePath%>jsp/shop/resources/css/signin.css" rel="stylesheet" type="text/css">
 </head>
 <div class="wrap signin">
 	<div class="content">
 		<div class="title">&nbsp;</div>
 		<div class="main">
 			<div class="header">
-				<a href="signin.html">登录</a>
+				<a href="signin.jsp">登录</a>
 			</div>
 			<div class="logo">
 				<div>
-					<img alt="" src="resources/images/signup-logo.png">
+					<img alt="" src="<%=basePath%>jsp/shop/resources/images/signup-logo.png">
 					<span>用户注册</span>
 				</div>
 			</div>
 			<form action="#">
 				<div class="input-wrap">
-					<img alt="" src="resources/images/signin-user.png">
+					<img alt="" src="<%=basePath%>jsp/shop/resources/images/signin-user.png">
 					<input type="text" id="u" placeholder="请输入手机号">
 				</div>
 				<div class="input-wrap">
-					<img alt="" src="resources/images/signin-pwd.png">
+					<img alt="" src="<%=basePath%>jsp/shop/resources/images/signin-pwd.png">
 					<input type="password" id="p" placeholder="请输入密码">
 				</div>
 				<div class="input-wrap">
-					<img alt="" src="resources/images/signin-pwd.png">
+					<img alt="" src="<%=basePath%>jsp/shop/resources/images/signin-pwd.png">
 					<input type="password" id="p2" placeholder="再次确认密码">
 				</div>
 				<div class="input-wrap nobg">

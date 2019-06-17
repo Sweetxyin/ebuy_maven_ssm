@@ -15,7 +15,7 @@ public interface ShoppingCartService {
      * @param productId 商品的主键
      * @param number 商品的数量
      */
-    void putProduct(Integer productId,Integer number);
+    int putProduct(Integer productId,Integer number);
 
     /**
      * 获取购物车中的信息

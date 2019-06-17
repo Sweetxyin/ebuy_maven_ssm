@@ -60,4 +60,7 @@
 		select * from product order by price desc limit 0,#{pageSize}
 	</select>
 
+	<select id="putProduct" resultType="Product">
+		select * from product where id=#{id}
+	</select>
 </mapper>

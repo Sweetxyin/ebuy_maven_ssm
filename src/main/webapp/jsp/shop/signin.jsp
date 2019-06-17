@@ -1,23 +1,29 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <html lang="zh-CN">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>橙汁园餐厅 -- 登录</title>
-<link href="resources/css/signin.css" rel="stylesheet" type="text/css">
+<link href="<%=basePath%>jsp/shop/resources/css/signin.css" rel="stylesheet" type="text/css">
 </head>
 <div class="wrap signin">
 	<div class="content">
 		<div class="title">
-			<a href="index.jsp">&nbsp;首页&nbsp;</a>
-			<a href="signin.html">&nbsp;登录/注册&nbsp;</a>
+			<a href="<%=basePath%>shop/index">&nbsp;首页&nbsp;</a>
+			<a href="signin.jsp">&nbsp;登录/注册&nbsp;</a>
 			<a href="shopcart.html">&nbsp;购物车&nbsp;</a>
 		</div>
 		<div class="main">
 			<div class="header">
-				<a href="signup.html">注册</a>
+				<a href="signup.jsp">注册</a>
 			</div>
 			<div class="logo">
 				<div>
-					<img alt="" src="resources/images/signin-logo.png">
+					<img alt="" src="<%=basePath%>jsp/shop/resources/images/signin-logo.png">
 					<span>用户登陆</span>
 				</div>
 			</div>

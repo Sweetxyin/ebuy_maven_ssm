@@ -22,6 +22,8 @@ public class ProductController {
 
 	@Resource
 	private ProductService productService;
+	@Resource
+	private ProductTypeService productTypeService;
 	//跳转到产品管理页面,并执行分页操作
 	@RequestMapping(value = "/backstage/product/toProduct", method = RequestMethod.GET)
 	public String toProduct(Model model, Integer page) {
@@ -52,7 +54,8 @@ public class ProductController {
 
 	//跳转到添加产品页面
 	@RequestMapping(value = "/backstage/product/toAddProduct", method = RequestMethod.GET)
-	public String toAddProduct(HttpServletRequest request) {
+	public String toAddProduct(Model model) {
+		model.addAttribute("productType",productTypeService.getProductTypeList());
 		return "/jsp/backstage/product/productadd.jsp";
 	}
 	//执行添加产品操作
@@ -67,6 +70,7 @@ public class ProductController {
 	//跳转到产品管理修改页面
 	@RequestMapping(value = "/backstage/product/toUpdateProduct", method = RequestMethod.GET)
 	public String toUpdateProduct(Model model,Integer id) {
+		model.addAttribute("list",productTypeService.getProductTypeList());
 		model.addAttribute("product",productService.getProduct(id));
 		return "/jsp/backstage/product/productupdate.jsp";
 	}

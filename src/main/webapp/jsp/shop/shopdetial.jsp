@@ -10,6 +10,11 @@
 <title>橙汁园餐厅 -- 详情</title>
 <link href="<%=basePath%>jsp/shop/resources/css/shopdetail.css" rel="stylesheet" type="text/css">
 </head>
+<script>
+	$('.add').click(function () {
+
+    })
+</script>
 <body>
 	<div class="wrap">
 		<iframe src="<%=basePath%>jsp/shop/header.jsp" style="height: 168px;"></iframe>
@@ -71,7 +76,7 @@
 											<%--<button class="buy">立刻购买</button>
 											<button class="add">加入购物车</button>--%>
 												<button class="buy" disabled="true">立刻购买</button>
-												<button name="putCart" class="add">加入购物车</button>
+												<button name="putCart" class="add"><a class="item" href="<%=basePath%>shop/toShopCart?id=${product.id}">加入购物车</a></button>
 										</div>
 									</form>
 								</li>

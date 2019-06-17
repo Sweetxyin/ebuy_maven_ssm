@@ -85,5 +85,11 @@ public interface ProductDao {
      */
     List<Product> getTimerProduct(int pageSize);
 
+    /**
+     * 添加商品到购物车当中
+     * @param productId 商品的主键
+     * @param number 商品的数量
+     */
+    int putProduct(Integer productId,Integer number);
 
 }

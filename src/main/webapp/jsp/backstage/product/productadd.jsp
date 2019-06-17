@@ -80,7 +80,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <li><label>*产品分类</label>
                 <select name="productTypeId" class="dfinput">
                     <option value>请选择</option>
-                    <c:forEach var="producttype" items="${requestScope.list}" >
+                    <c:forEach var="productType" items="${requestScope.list}" >
                     <option value ="${product.productType.id}">${product.productType.name}</option>
                     </c:forEach>
                 </select>
