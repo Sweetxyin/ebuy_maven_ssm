@@ -7,6 +7,7 @@ import com.lcvc.ebuy_maven_ssm.service.ProductService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -38,6 +39,7 @@ public class ProductServiceImpl implements ProductService {
 
     public boolean saveProduct(Product product){
         Boolean status=false;//默认添加失败
+        product.setCreateTime(new Date());
         int i=productDao.saveProduct(product);
         if (i>0){
             status=true;

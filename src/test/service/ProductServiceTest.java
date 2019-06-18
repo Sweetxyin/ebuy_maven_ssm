@@ -21,5 +21,15 @@ public class ProductServiceTest extends SpringJunitTest {
         }
     }
 
+    @Test
+    public void  testSaveProduct(){
+
+        Product product=new Product();
+        product.setName("芒果芋圆");
+        product.setNumber(20);
+        product.setClick(10);
+        product.setOnSale(true);
+       productService.saveProduct(product);
+    }
 
 }

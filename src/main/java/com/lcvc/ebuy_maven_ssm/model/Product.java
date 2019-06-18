@@ -9,6 +9,7 @@ package com.lcvc.ebuy_maven_ssm.model;
 public class Product implements java.io.Serializable {
 
 	private Integer id;
+	private Integer productTypeId;
 	private ProductType productType;//所属产品类别
 	private String name;//产品名称
 	private Integer orderNum;//优先级
@@ -22,7 +23,9 @@ public class Product implements java.io.Serializable {
 	private Boolean onSale;//是否上架（true表示上架，但是要考虑上架时间；false表示不上架）
 	private java.util.Date createTime;//创建时间
 	private Admin creator;//创建产品管理员
+	private Integer creatorId;
 	private Admin finalEditor;//最后编辑管理员
+	private Integer finalEditorId;//最后编辑管理员
 	private java.util.Date updateTime;//最后编辑时间
 	
 	//非数据库字段

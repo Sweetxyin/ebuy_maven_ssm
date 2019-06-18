@@ -30,10 +30,6 @@ public class AdminDaoTest extends SpringJunitTest {
     }
 
 
-
-
-
-
     @Test
     public void testExistsAdmin() {
         System.out.println(adminDao.existsAdmin("user", 1));

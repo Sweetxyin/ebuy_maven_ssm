@@ -60,10 +60,14 @@ public class ProductController {
 	}
 	//执行添加产品操作
 	@RequestMapping(value = "/backstage/product/doAddProduct", method = RequestMethod.POST)
-	public String doAddProduct(HttpServletRequest request, HttpSession session,Product product) {
-
-		productService.saveProduct(product);
-
+	public String doAddProduct(Model model,Product product) {
+		product.setName(product.getName().trim());
+		if (product.getName().length()==0) {
+			model.addAttribute("myMessage", "添加产品失败：产品名称不能为空");
+		}else {
+			productService.saveProduct(product);
+			model.addAttribute("myMessage", "添加产品成功！");
+		}
 		return "/jsp/backstage/product/productadd.jsp";
 	}
 
