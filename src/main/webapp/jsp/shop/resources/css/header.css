@@ -84,3 +84,6 @@ body {
 	line-height: 47px;
 	border-left: none;
 }
+.menu li a:hover{
+	color:#d2364c;
+}

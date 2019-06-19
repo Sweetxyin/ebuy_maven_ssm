@@ -14,7 +14,16 @@
 	<div class="header">
 		<div class="toolbar">
 			<a href="<%=basePath%>shop/index" target="top">&nbsp;首页&nbsp;</a>
-			<a href="signin.jsp" target="top">&nbsp;登录/注册&nbsp;</a>
+			<c:set var="admin" scope="request" value=""/>
+			<c:choose>
+				<c:when test="${sessionScope.admin.name==null}">
+					<a href="<%=basePath%>shop/toSignin" target="top">&nbsp;登录/注册&nbsp;</a>
+				</c:when>
+				<c:otherwise>
+					${sessionScope.admin.name}，你好<a href="<%=basePath%>shop/logout" target="_parent">（退出）</a>
+				</c:otherwise>
+			</c:choose>
+
 			<a href="<%=basePath%>shop/toShopCart" target="top">&nbsp;购物车&nbsp;</a>
 		</div>
 		<div class="content">
@@ -28,11 +37,11 @@
 			<ul>
 				<li class="cur"><a href="index.jsp" target="top">全部分类</a></li>
 				<li><a href="<%=basePath%>shop/index" target="top">首页</a></li>
-				<li><a href="shop/toProduct" target="top" style="color: #d2364c;">今日新品</a></li>
-				<li><a href="shop/toProduct" target="top">热门订单</a></li>
-				<li><a href="shoplists.html" target="top">限时秒杀</a></li>
-				<li><a href="shoplists.html" target="top">拼团</a></li>
-				<li><a href="shoplists.jsp" target="top">特惠</a></li>
+				<li><a href="<%=basePath%>shop/toProduct" target="top"<%-- style="color: #d2364c;"--%>>今日新品</a></li>
+				<li><a href="<%=basePath%>shop/toProduct" target="top">热门订单</a></li>
+				<li><a href="<%=basePath%>shop/toProduct" target="top">限时秒杀</a></li>
+				<li><a href="<%=basePath%>shop/toProduct" target="top">拼团</a></li>
+				<li><a href="<%=basePath%>shop/toProduct" target="top">特惠</a></li>
 			</ul>
 		</div>
 	</div>

@@ -173,8 +173,10 @@
 				</em>
 			</div>
 			<hr color="#d2364c">
+			<a href="/shop/index">购物车是空的哦，请先购物</a>
 		</div>
 		<iframe src="<%=basePath%>jsp/shop/footer.html" style="height: 120px;"></iframe>
+
 	</div>
 	<script type="text/javascript">
 		// 获取全选复选框
