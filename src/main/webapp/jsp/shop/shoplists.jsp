@@ -115,14 +115,22 @@
 					</div>--%>
 				</div>
 				<div class="pager">
-					<button>&lt;&lt;</button>
-					<button>1</button>
-					<button>2</button>
-					<button>3</button>
-					<button>4</button>
-					<button>5</button>
-					<button>6</button>
+			        <button>&lt;&lt;</button>
+					<button onclick="javascritpt:window.location.href='<%=basePath%>/shop/toProduct?page=1'">首页</button>
+					<button onclick="javascritpt:window.location.href='<%=basePath%>/shop/toProduct?page=${requestScope.page-1}'">上一页</button>
+					<button onclick="javascritpt:window.location.href='<%=basePath%>/shop/toProduct?page=${requestScope.page+1}'">下一页</button>
+					<button onclick="javascritpt:window.location.href='<%=basePath%>/shop/toProduct?page=${requestScope.maxPage}'">尾页</button>
+
 					<button>&gt;&gt;</button>
+
+
+
+
+
+
+
+
+
 				</div>
 			</div>
 			<br>

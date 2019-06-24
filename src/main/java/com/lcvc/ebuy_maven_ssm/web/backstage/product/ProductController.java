@@ -82,7 +82,7 @@ public class ProductController {
 	@RequestMapping(value = "/backstage/product/doUpdateProduct", method = RequestMethod.POST)
 	public String doUpdateProduct(HttpSession session,Model model,Product product){
 		  productService.updateProduct(product);
-		model.addAttribute("myMessage", "修改产品分类成功");
+		 model.addAttribute("myMessage", "修改产品成功");
 
 		return "/jsp/backstage/product/productupdate.jsp";
 	}

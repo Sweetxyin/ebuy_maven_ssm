@@ -20,6 +20,9 @@ public class Product implements java.io.Serializable {
 	private String picUrl;//产品图片路径
 	private Integer number;//库存数量
 	private Integer click;//点击数
+
+
+
 	private Boolean onSale;//是否上架（true表示上架，但是要考虑上架时间；false表示不上架）
 	private java.util.Date createTime;//创建时间
 	private Admin creator;//创建产品管理员
@@ -53,7 +56,13 @@ public class Product implements java.io.Serializable {
 		this.id = id;
 	}
 
-	
+	public Integer getProductTypeId() {
+		return productTypeId;
+	}
+
+	public void setProductTypeId(Integer productTypeId) {
+		this.productTypeId = productTypeId;
+	}
 
 	public ProductType getProductType() {
 		return productType;

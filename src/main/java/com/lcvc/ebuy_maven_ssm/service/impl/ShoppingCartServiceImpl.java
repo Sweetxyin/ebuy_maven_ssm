@@ -32,4 +32,6 @@ public class ShoppingCartServiceImpl implements ShoppingCartService{
     @Override
     public void removeProduct(Integer productId) {
         map.remove(new Product(productId));   }
+
+
 }
