@@ -59,12 +59,12 @@
 	<div class="content">
 		<div class="title">
 			<a href="<%=basePath%>shop/index">&nbsp;首页&nbsp;</a>
-			<a href="signin.jsp">&nbsp;登录/注册&nbsp;</a>
+			<a href="<%=basePath%>shop/toSignin">&nbsp;登录/注册&nbsp;</a>
 			<a href="shopcart.html">&nbsp;购物车&nbsp;</a>
 		</div>
 		<div class="main">
 			<div class="header">
-				<a href="signup.jsp">注册</a>
+				<a href="<%=basePath%>shop/signup">注册</a>
 			</div>
 			<div class="logo">
 				<div>

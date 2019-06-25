@@ -16,11 +16,11 @@
 			<a href="<%=basePath%>shop/index" target="top">&nbsp;首页&nbsp;</a>
 			<c:set var="admin" scope="request" value=""/>
 			<c:choose>
-				<c:when test="${sessionScope.admin.name==null}">
+				<c:when test="${sessionScope.customer.name==null}">
 					<a href="<%=basePath%>shop/toSignin" target="top">&nbsp;登录/注册&nbsp;</a>
 				</c:when>
 				<c:otherwise>
-					${sessionScope.admin.name}，你好<a href="<%=basePath%>shop/logout" target="_parent">（退出）</a>
+					${sessionScope.customer.name}，你好<a href="<%=basePath%>shop/logout" target="_parent">（退出）</a>
 				</c:otherwise>
 			</c:choose>
 

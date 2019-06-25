@@ -28,7 +28,7 @@ public interface AdminService {
      * @param password 密码
      * @return null表示登录失败
      */
-    public Admin login(String username, String password);
+     Admin login(String username, String password);
 
 
     /*

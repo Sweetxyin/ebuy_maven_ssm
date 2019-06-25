@@ -76,7 +76,7 @@
 											<%--<button class="buy">立刻购买</button>
 											<button class="add">加入购物车</button>--%>
 												<button class="buy" disabled="true">立刻购买</button>
-												<button name="putCart" class="add"><a class="item" href="<%=basePath%>shop/toShopCart?id=${product.id}">加入购物车</a></button>
+												<button name="putCart" class="add"><a class="item" href="<%=basePath%>shop/toShopCart??productId=${product.id}&number=1">加入购物车</a></button>
 										</div>
 									</form>
 								</li>

@@ -9,13 +9,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>橙汁园餐厅 -- 注册</title>
 <link href="<%=basePath%>jsp/shop/resources/css/signin.css" rel="stylesheet" type="text/css">
+	<script>
+        var message='${requestScope.myMessage}';
+        //如果没有收到服务端发来的信息，那么就不弹出对话框
+        if(message!=''){
+            alert(message);
+        }
+
+	</script>
 </head>
 <div class="wrap signin">
 	<div class="content">
 		<div class="title">&nbsp;</div>
 		<div class="main">
 			<div class="header">
-				<a href="signin.jsp">登录</a>
+				<a href="<%=basePath%>shop/toSignin">登录</a>
 			</div>
 			<div class="logo">
 				<div>
@@ -23,18 +31,18 @@
 					<span>用户注册</span>
 				</div>
 			</div>
-			<form action="#">
+			<form action="<%=basePath%>shop/doSignup" method="post">
 				<div class="input-wrap">
 					<img alt="" src="<%=basePath%>jsp/shop/resources/images/signin-user.png">
-					<input type="text" id="u" placeholder="请输入手机号">
+					<input name="username" type="text" id="u" placeholder="账户名">
 				</div>
 				<div class="input-wrap">
 					<img alt="" src="<%=basePath%>jsp/shop/resources/images/signin-pwd.png">
-					<input type="password" id="p" placeholder="请输入密码">
+					<input name="password" type="password" id="p" placeholder="密码">
 				</div>
 				<div class="input-wrap">
 					<img alt="" src="<%=basePath%>jsp/shop/resources/images/signin-pwd.png">
-					<input type="password" id="p2" placeholder="再次确认密码">
+					<input name="name" type="text" id="p2" placeholder="网名">
 				</div>
 				<div class="input-wrap nobg">
 					<button class="btn-default" id="submit">注册</button>

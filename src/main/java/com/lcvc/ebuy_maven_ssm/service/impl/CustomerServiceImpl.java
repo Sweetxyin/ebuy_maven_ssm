@@ -3,6 +3,7 @@ package com.lcvc.ebuy_maven_ssm.service.impl;
 import com.lcvc.ebuy_maven_ssm.dao.CustomerDao;
 import com.lcvc.ebuy_maven_ssm.model.Customer;
 import com.lcvc.ebuy_maven_ssm.service.CustomerService;
+import com.lcvc.ebuy_maven_ssm.util.SHA;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -65,7 +66,37 @@ public class CustomerServiceImpl implements CustomerService{
         return customer;
     }
 
+    @Override
+    public Customer login(String username, String password) {
+        if (password.length()!=32){
+            //将密码加密后再进行比对
+            password= SHA.getResult(password);
+        }
+        Customer customer=customerDao.login(username, password);
+        return customer;
+    }
 
+    @Override
+    public boolean existsCustomer(String username) {
+        if (customerDao.existsCustomer(username)==0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+    @Override
+    public boolean saveShopCustomer(Customer customer) {
+
+        Boolean status=false;//默认添加失败
+        customer.setPassword(SHA.getResult(customer.getPassword()));
+        customer.setCreateTime(new Date());
+        int i=customerDao.saveShopCustomer(customer);
+        if (i>0){
+            status=true;
+        }
+        return status;
+    }
 
 
 }

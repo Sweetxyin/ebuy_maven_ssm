@@ -19,4 +19,14 @@
 	<select id="getCustomer" resultType="Customer">
 		select * from customer where id=#{id}
 	</select>
+	<!-- 根据账户名和密码，查询得到一个admin对象 -->
+	<select id="login" resultType="Customer">
+		select * from customer where username=#{username} and password=#{password}
+	</select>
+	<select id="existsCustomer" resultType="int">
+		select count(id) from customer  WHERE username=#{username}
+	</select>
+	<insert id="saveShopCustomer">
+		insert into customer (id,username,password,name,tel,address,zip,email,picUrl,intro,createTime)values(null,#{username},#{password},#{name},#{tel},#{address},#{zip},#{email},#{picUrl},#{intro},#{createTime})
+	</insert>
 </mapper>
