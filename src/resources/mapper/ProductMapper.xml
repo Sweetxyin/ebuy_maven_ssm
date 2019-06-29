@@ -63,4 +63,21 @@
 	<select id="putProduct" resultType="Product">
 		select * from product where id=#{id}
 	</select>
+
+
+	<select id="searchProduct" resultType="Product"
+			parameterType="Product">
+		SELECT * FROM product
+		<where>
+			<if test="name != null and name != ''">
+				AND name LIKE "%"#{name}"%"
+			</if>
+		</where>
+		ORDER BY id
+	</select>
+
+
+	<select id="getProductTypeList" resultType="Product">
+		select * from product where productTypeId=#{productTypeId}
+	</select>
 </mapper>

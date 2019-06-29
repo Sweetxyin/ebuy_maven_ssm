@@ -111,7 +111,15 @@ public class ProductServiceImpl implements ProductService {
         return productDao.getTimerProduct(pageSize);
     }
 
+    @Override
+    public List<Product> searchProduct(Product product) {
+        return productDao.searchProduct(product);
+    }
 
+    @Override
+    public List<Product> getProductTypeList(int id) {
+        return productDao.getProductTypeList(id);
+    }
 
 
 }

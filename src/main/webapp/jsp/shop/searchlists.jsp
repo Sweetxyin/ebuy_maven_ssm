@@ -31,7 +31,7 @@
 					<button class="sales">销量</button>
 				</div>
 				<div class="block-wrap">
-					<c:forEach var="product" items="${requestScope.list}">
+					<c:forEach var="product" items="${requestScope.product}">
 					<div class="item">
 					<a href="<%=basePath%>shop/toShopDetial?id=${product.id}"><img alt="" style="width: 250px;height: 180px;" src="<%=basePath%>${product.picUrl}"></a>
 					<label><em>${product.price}</em><span>${product.originalPrice}</span>67人付款</label>
@@ -48,14 +48,6 @@
 					<button onclick="javascritpt:window.location.href='<%=basePath%>/shop/toProduct?page=${requestScope.maxPage}'">尾页</button>
 
 					<button>&gt;&gt;</button>
-
-
-
-
-
-
-
-
 
 				</div>
 			</div>

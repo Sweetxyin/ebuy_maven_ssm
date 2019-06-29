@@ -21,139 +21,45 @@
 				<em class="th4">总价</em>
 				<em class="th5">操作</em>
 			</div>
-			<div class="tbody">
-
-				<div class="tr">
+			<c:set var="product " scope="request" value=""/>
+			<c:choose>
+				<c:when test="${sessionScope.product.id==null}">
+					<div class="tbody">
+						<c:forEach var="product" items="${cart}">
+							<div class="tr">
 					<span class="td td1">
 						<input type="checkbox" class="check">
 					</span>
-					<span class="td td2">
-						<a href="shopdetial.html"><img alt="" src="<%=basePath%>jsp/shop/resources/images/foods/41.jpg"></a>
-						<span> ${requestScope.product.name}</span>
+								<span class="td td2">
+						<a href="shopdetial.html"><img alt="" src="<%=basePath%>${product.key.picUrl}"></a>
+						<span> ${product.key.name}</span>
 					</span>
-					<span class="td td3">
-						<span>${product.originalPrice}</span>
-						<b>${requestScope.product.price}</b>
+								<span class="td td3">
+						<span>${product.key.originalPrice}</span>
+						<b>${product.key.price}</b>
 					</span>
-					<span class="td td4">
+								<span class="td td4">
 						<div class="input-wrap">
 							<button class="sub">-</button>
 							<input type="text" class="number" value="1">
 							<button class="add">+</button>
 						</div>
 					</span>
-					<span class="td td5">
-						<b>12.00</b>
+								<span class="td td5">
+						<b>${product.key.price}</b>
 					</span>
-					<span class="td td6">
+								<span class="td td6">
 						<a href="#" class="delete">删除</a>
 					</span>
-				</div>
-				<%--<div class="tr">
-					<span class="td td1">
-						<input type="checkbox" class="check" checked="checked">
-					</span>
-					<span class="td td2">
-						<a href="shopdetial.html"><img alt="" src="resources/images/foods/41.jpg"></a>
-						<span>干煸四季豆</span>
-					</span>
-					<span class="td td3">
-						<span>15.00</span>
-						<b>12.00</b>
-					</span>
-					<span class="td td4">
-						<div class="input-wrap">
-							<button class="sub">-</button>
-							<input type="text" class="number" value="1">
-							<button class="add">+</button>
-						</div>
-					</span>
-					<span class="td td5">
-						<b>12.00</b>
-					</span>
-					<span class="td td6">
-						<a href="#" class="delete">删除</a>
-					</span>
-				</div>
-				<div class="tr">
-					<span class="td td1">
-						<input type="checkbox" class="check" checked="checked">
-					</span>
-					<span class="td td2">
-						<a href="shopdetial.html"><img alt="" src="resources/images/foods/41.jpg"></a>
-						<span>干煸四季豆</span>
-					</span>
-					<span class="td td3">
-						<span>15.00</span>
-						<b>12.00</b>
-					</span>
-					<span class="td td4">
-						<div class="input-wrap">
-							<button class="sub">-</button>
-							<input type="text" class="number" value="1">
-							<button class="add">+</button>
-						</div>
-					</span>
-					<span class="td td5">
-						<b>12.00</b>
-					</span>
-					<span class="td td6">
-						<a href="#" class="delete">删除</a>
-					</span>
-				</div>
-				<div class="tr">
-					<span class="td td1">
-						<input type="checkbox" class="check" checked="checked">
-					</span>
-					<span class="td td2">
-						<a href="shopdetial.html"><img alt="" src="resources/images/foods/41.jpg"></a>
-						<span>干煸四季豆</span>
-					</span>
-					<span class="td td3">
-						<span>15.00</span>
-						<b>12.00</b>
-					</span>
-					<span class="td td4">
-						<div class="input-wrap">
-							<button class="sub">-</button>
-							<input type="text" class="number" value="1">
-							<button class="add">+</button>
-						</div>
-					</span>
-					<span class="td td5">
-						<b>12.00</b>
-					</span>
-					<span class="td td6">
-						<a href="#" class="delete">删除</a>
-					</span>
-				</div>
-				<div class="tr">
-					<span class="td td1">
-						<input type="checkbox" class="check" checked="checked">
-					</span>
-					<span class="td td2">
-						<a href="shopdetial.html"><img alt="" src="resources/images/foods/41.jpg"></a>
-						<span>干煸四季豆</span>
-					</span>
-					<span class="td td3">
-						<span>15.00</span>
-						<b>12.00</b>
-					</span>
-					<span class="td td4">
-						<div class="input-wrap">
-							<button class="sub">-</button>
-							<input type="text" class="number" value="1">
-							<button class="add">+</button>
-						</div>
-					</span>
-					<span class="td td5">
-						<b>12.00</b>
-					</span>
-					<span class="td td6">
-						<a href="#" class="delete">删除</a>
-					</span>
-				</div>--%>
-			</div>
+							</div>
+						</c:forEach>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<a href="/shop/index">购物车是空的哦，请先购物</a>
+				</c:otherwise>
+			</c:choose>
+
 			<div class="tfoot">
 				<em class="tf tf1">
 					<input type="checkbox" class="checks">
@@ -173,7 +79,7 @@
 				</em>
 			</div>
 			<hr color="#d2364c">
-			<a href="/shop/index">购物车是空的哦，请先购物</a>
+
 		</div>
 		<iframe src="<%=basePath%>jsp/shop/footer.html" style="height: 120px;"></iframe>
 

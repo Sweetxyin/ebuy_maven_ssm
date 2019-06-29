@@ -89,8 +89,7 @@ public class CustomerServiceImpl implements CustomerService{
     public boolean saveShopCustomer(Customer customer) {
 
         Boolean status=false;//默认添加失败
-        customer.setPassword(SHA.getResult(customer.getPassword()));
-        customer.setCreateTime(new Date());
+       customer.setPassword(SHA.getResult(customer.getPassword()));
         int i=customerDao.saveShopCustomer(customer);
         if (i>0){
             status=true;

@@ -11,7 +11,7 @@ import java.util.List;
 public class ProductServiceTest extends SpringJunitTest {
     @Resource
     private ProductService productService;
-
+    Product product=new Product();
     @Test
     public void  testProductList(){
         List<Product> list=productService.getProductList(2);
@@ -24,7 +24,7 @@ public class ProductServiceTest extends SpringJunitTest {
     @Test
     public void  testSaveProduct(){
 
-        Product product=new Product();
+
         product.setName("芒果芋圆");
         product.setNumber(20);
         product.setClick(10);
@@ -32,4 +32,10 @@ public class ProductServiceTest extends SpringJunitTest {
        productService.saveProduct(product);
     }
 
+    @Test
+    public void  searchProduct(){
+
+       product.setName("冰淇淋");
+       System.out.println( productService.searchProduct(product));
+    }
 }

@@ -12,30 +12,13 @@
 	<link href="<%=basePath%>jsp/shop/lib/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
 	<link href="<%=basePath%>jsp/shop/resources/css/index.css" rel="stylesheet" type="text/css">
 	<style type="text/css">
-
-		/*设置左上角图片的位置和宽高*/
-		.navbar-brand>img {
-			height: auto;
-			width: 250px;
-			margin-right: 5px;
-			margin-top: 5px;
-		}
-		/*设置选项卡菜单的字体颜色*/
-		.nav-pills>li>a {
-			color: #8e908d;
-		}
-		/*设置选项卡菜单鼠标悬停和获取焦点时背景色和字体颜色*/
-		.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
-			color: #fff;
-			background-color: #5A9522;
-		}
-		.choose {
-			border: 1px solid silver;
-		}
-		/*设置选项卡内容的位置*/
-		.tab-content {
-			margin: 5px;
-			text-align: center;/*居中显示*/
+		.wrap .content .block .block-wrap .item {
+			width: 265px;
+			height: 275px;
+			padding: 10px;
+			display: inline-block;
+			border: 1px solid #a94442;
+			margin: 8px 15px 0 15px;
 		}
 	</style>
 
@@ -43,24 +26,41 @@
 <body>
 	<div class="wrap">
 		<iframe src="<%=basePath%>jsp/shop/header.jsp" style="height: 168px;"></iframe>
-		<div class="content">
-			<div class="logo">
-				<img alt="" src="<%=basePath%>jsp/shop/resources/images/index-logo.jpg">
+		<div class="content ">
+			<div class="logo ">
+				<%--<img alt="" src="<%=basePath%>jsp/shop/resources/images/index-logo.jpg">--%>
+					<div id="myCarousel" class="carousel slide container-fluid">
+						<!-- 轮播（Carousel）指标 -->
+						<ol class="carousel-indicators">
+							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+							<li data-target="#myCarousel" data-slide-to="1"></li>
+							<li data-target="#myCarousel" data-slide-to="2"></li>
+						</ol>
+						<!-- 轮播（Carousel）项目 -->
+						<div class="carousel-inner">
+							<div class="item active">
+								<img src="<%=basePath%>jsp/shop/resources/images/bg3.jpg" alt="First slide">
+							</div>
+							<div class="item">
+								<img src="<%=basePath%>jsp/shop/resources/images/bg2.jpg" alt="Second slide">
+							</div>
+							<div class="item">
+								<img src="<%=basePath%>jsp/shop/resources/images/bg1.jpg" alt="Third slide">
+							</div>
+						</div>
+						<!-- 轮播（Carousel）导航 -->
+						<a class="carousel-control left" href="#myCarousel"
+						   data-slide="prev"> <span _ngcontent-c3="" aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span></a>
+						<a class="carousel-control right" href="#myCarousel"
+						   data-slide="next">&rsaquo;</a>
+					</div>
+
+
 				<div class="menu">
 					<ul>
-
 						<c:forEach var="productType" items="${requestScope.productType}">
-							<li><a href="<%=basePath%>shoplists.html"><img class="left" alt="" src="<%=basePath%>${productType.imageUrl}"<%--/jsp/shop/resources/images/menu-icon01.png"--%>>${productType.name}<img class="right" alt="" src="<%=basePath%>/jsp/shop/resources/images/menu-right.png"></a></li>
+							<li><a href="<%=basePath%>shop/toProductType?id=${productType.id}"><img class="left" alt="" src="<%=basePath%>${productType.imageUrl}">${productType.name}<img class="right" alt="" src="<%=basePath%>/jsp/shop/resources/images/menu-right.png"></a></li>
 						</c:forEach>
-						<%--<li><a href="shoplists.html"><img class="left" alt="" src="<%=basePath%>/jsp/shop/resources/images/menu-icon01.png">小吃快餐<img class="right" alt="" src="<%=basePath%>/jsp/shop/resources/images/menu-right.png"></a></li>
-						<li><a href="shoplists.html"><img class="left" alt="" src="<%=basePath%>jsp/shop/resources/images/menu-icon02.png">甜点饮品<img class="right" alt="" src="<%=basePath%>/jsp/shop/resources/images/menu-right.png"></a></li>
-						<li><a href="shoplists.html"><img class="left" alt="" src="<%=basePath%>jsp/shop/resources/images/menu-icon03.png">西&emsp;&emsp;餐<img class="right" alt="" src="<%=basePath%>/jsp/shop/resources/images/menu-right.png"></a></li>
-						<li><a href="shoplists.html"><img class="left" alt="" src="<%=basePath%>jsp/shop/resources/images/menu-icon04.png">火&emsp;&emsp;锅<img class="right" alt="" src="<%=basePath%>/jsp/shop/resources/images/menu-right.png"></a></li>
-						<li><a href="shoplists.html"><img class="left" alt="" src="<%=basePath%>jsp/shop/resources/images/menu-icon05.png">汤/粥/炖菜<img class="right" alt="" src="<%=basePath%>/jsp/shop/resources/images/menu-right.png"></a></li>
-						<li><a href="shoplists.html"><img class="left" alt="" src="<%=basePath%>jsp/shop/resources/images/menu-icon06.png">小&emsp;&emsp;炒<img class="right" alt="" src="<%=basePath%>/jsp/shop/resources/images/menu-right.png"></a></li>
-						<li><a href="shoplists.html"><img class="left" alt="" src="<%=basePath%>jsp/shop/resources/images/menu-icon07.png">凉菜/时蔬<img class="right" alt="" src="<%=basePath%>/jsp/shop/resources/images/menu-right.png"></a></li>
-						<li><a href="shoplists.html"><img class="left" alt="" src="<%=basePath%>jsp/shop/resources/images/menu-icon08.png">主&emsp;&emsp;食<img class="right" alt="" src="<%=basePath%>/jsp/shop/resources/images/menu-right.png"></a></li>
-						<li><a href="shoplists.html"><img class="left" alt="" src="<%=basePath%>jsp/shop/resources/images/menu-icon09.png">水&emsp;&emsp;果<img class="right" alt="" src="<%=basePath%>/jsp/shop/resources/images/menu-right.png"></a></li>--%>
 
 					</ul>
 				</div>
@@ -73,7 +73,7 @@
 				<div class="block-wrap">
 					<c:forEach var="product" items="${requestScope.newProduct}">
 					<div class="item">
-						<a href="<%=basePath%>shop/toShopDetial?id=${product.id}"><img alt="" style="width: 220px;height: 180px;" src="<%=basePath%>${product.picUrl}"></a>
+						<a href="<%=basePath%>shop/toShopDetial?id=${product.id}"><img alt="" style="width: 240px;height: 180px;" src="<%=basePath%>${product.picUrl}"></a>
 						<label><em> ${product.price}</em><span>${product.originalPrice}</span>67人付款</label>
 						<h3>${product.name}</h3>
 					</div>
@@ -89,7 +89,7 @@
 				<div class="block-wrap">
 					<c:forEach var="product" items="${requestScope.hotProduct}">
 					<div class="item">
-						<a href="<%=basePath%>shop/toShopDetial?id=${product.id}"><img alt="" style="width: 220px;height: 180px;" src="<%=basePath%>${product.picUrl}"></a>
+						<a href="<%=basePath%>shop/toShopDetial?id=${product.id}"><img alt="" style="width: 240px;height: 180px;" src="<%=basePath%>${product.picUrl}"></a>
 						<label><em>${product.price}</em><span>${product.originalPrice}</span>67人付款</label>
 						<h3>${product.name}</h3>
 					</div>
@@ -103,54 +103,22 @@
 					<a href="<%=basePath%>shop/toProduct" style="display: none;">更多&gt;&gt;</a>
 				</div>
 				<div class="block-wrap border">
-
 					<div class="crumb">
-						<ul class="nav nav-pills" role="tablist" >
-							<li role="presentation" class="cur active "><a href="#xsms" role="tab" data-toggle="tab">限时秒杀</a></li>
-							<li role="presentation"><a href="#pt" role="tab" data-toggle="tab">拼团</a></li>
-							<li role="presentation"><a href="#th" role="tab" data-toggle="tab">特惠</a></li>
-							<li role="presentation"><a href="#rmph" role="tab" data-toggle="tab">热门排行</a></li>
+						<ul>
+							<li class="cur"><a href="#">限时秒杀</a></li>
+							<li><a href="#">拼团</a></li>
+							<li><a href="#">特惠</a></li>
+							<li><a href="#">热门排行</a></li>
 						</ul>
 						<a href="<%=basePath%>jsp/shop/shoplists.jsp">更多&gt;&gt;</a>
 					</div>
-					<%--限时秒杀的商品--%>
-
 					<c:forEach var="product" items="${requestScope.timerProduct}">
-					<div role="tabpanel" class="tab-pane active item"   id="xsms">
+						<div class="item">
 							<a href="<%=basePath%>shop/toShopDetial?id=${product.id}"><img alt="" style="width: 220px;height: 180px;" src="<%=basePath%>${product.picUrl}"></a>
 							<label><em>${product.price}</em><span>${product.originalPrice}</span>67人付款</label>
 							<h3>${product.name}</h3>
-					</div>
-					</c:forEach>
-
-
-					<%--拼团的商品--%>
-					<c:forEach var="product" items="${requestScope.hotProduct}">
-						<div role="tabpanel" class="tab-pane item hide" id="pt">
-							<a href="<%=basePath%>shop/toShopDetial?id=${product.id}"><img alt="" style="width: 250px;height: 180px;" src="<%=basePath%>${product.picUrl}"></a>
-							<label><em>${product.price}</em><span>${product.originalPrice}</span>67人付款</label>
-							<h3>${product.name}</h3>
 						</div>
 					</c:forEach>
-
-					<%--特惠的商品--%>
-					<c:forEach var="product" items="${requestScope.timerProduct}">
-						<div role="tabpanel" class="tab-pane item hide" id="th">
-							<a href="<%=basePath%>shop/toShopDetial?id=${product.id}"><img alt="" style="width: 250px;height: 180px;" src="<%=basePath%>${product.picUrl}"></a>
-							<label><em>${product.price}</em><span>${product.originalPrice}</span>67人付款</label>
-							<h3>${product.name}</h3>
-						</div>
-					</c:forEach>
-
-					<%--热门排行的商品--%>
-					<c:forEach var="product" items="${requestScope.timerProduct}">
-						<div role="tabpanel" class="tab-pane item hide" id="rmph">
-							<a href="<%=basePath%>shop/toShopDetial?id=${product.id}"><img alt="" style="width: 250px;height: 180px;" src="<%=basePath%>${product.picUrl}"></a>
-							<label><em>${product.price}</em><span>${product.originalPrice}</span>67人付款</label>
-							<h3>${product.name}</h3>
-						</div>
-					</c:forEach>
-
 
 				</div>
 			</div>
@@ -158,8 +126,8 @@
 		</div>
 		<iframe src="<%=basePath%>jsp/shop/footer.html" style="height: 120px;"></iframe>
 	</div>
-	<script src="<%=basePath%>jsp/shop/lib/bootstrap/jquery-1.12.4.js"></script>
-	<script src="<%=basePath%>jsp/shop/lib/jquery/js/bootstrap.js"></script>
+	<script src="<%=basePath%>jsp/shop/lib/jquery/jquery-1.12.4.js"></script>
+	<script src="<%=basePath%>jsp/shop/lib/bootstrap/js/bootstrap.js"></script>
 
 </body>
 </html>

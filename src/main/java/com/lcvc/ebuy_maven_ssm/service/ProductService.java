@@ -76,4 +76,16 @@ public interface ProductService {
      */
     List<Product> getTimerProduct(int pageSize);
 
+
+    /**
+     * 返回前台的模糊查询的产品管理
+     * @return 以list方式返回
+     */
+    List<Product> searchProduct(Product product);
+
+    /**
+     * 返回前台的产品分类的产品
+     * @return 以list方式返回
+     */
+    List<Product> getProductTypeList(int id);
 }

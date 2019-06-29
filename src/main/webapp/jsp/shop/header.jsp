@@ -24,12 +24,12 @@
 				</c:otherwise>
 			</c:choose>
 
-			<a href="<%=basePath%>shop/toShopCart" target="top">&nbsp;购物车&nbsp;</a>
+			<a href="<%=basePath%>shop/shopcart.jsp" target="top">&nbsp;购物车&nbsp;</a>
 		</div>
 		<div class="content">
 			<img alt="" src="resources/images/logo.png">
-			<form class="search-wrap" target="_top" action="#">
-				<input type="text" id="s">
+			<form class="search-wrap" target="_top" action="<%=basePath%>shop/toSearchList?name=${product.name}">
+				<input type="text" id="s" name="name">
 				<button id="submit">搜索</button>
 			</form>
 		</div>
