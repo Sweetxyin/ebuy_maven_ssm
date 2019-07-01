@@ -9,6 +9,53 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>橙汁园餐厅 -- 购物车</title>
 <link href="<%=basePath%>jsp/shop/resources/css/shopcart.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="<%=basePath%>jsp/shop/lib/jquery/jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+        $(document).ready(function(){
+            $(".click").click(function(){
+                $(".tip").fadeIn(200);
+            });
+
+            $(".tiptop a").click(function(){
+                $(".tip").fadeOut(200);
+            });
+
+            $(".sure").click(function(){
+                $(".tip").fadeOut(100);
+            });
+
+            $(".cancel").click(function(){
+                $(".tip").fadeOut(100);
+            });
+
+            /*  $("a[name='deleteProduct']").click(function () {
+                  var url=$(this).attr("href");
+                  var name=$(this).attr("id")
+                  if (window.confirm("确认删除该账户("+name+")吗？")){
+                      return true;//执行链接跳转
+                  }else {
+                      return false;//不执行链接的跳转
+                  }
+             */
+            $("a[name='deleteProduct']").click(function () {
+                $this=$(this);
+                var name=$(this).attr("id");
+                if(window.confirm("确认删除该商品("+name+")吗？删除后无法恢复！")){
+                    var url=$(this).attr("href");
+                    $.get(url,
+                        function (data) {
+                            if(data.status==1){
+                                //alert("删除成功");
+                                $this.parent().remove();
+                            }
+                        }
+                    );
+                }
+                return false;
+            });
+        });
+
+	</script>
 </head>
 <body>
 	<div class="wrap">
@@ -49,7 +96,9 @@
 						<b>${product.key.price}</b>
 					</span>
 								<span class="td td6">
-						<a href="#" class="delete">删除</a>
+						<%--<a href="#" class="delete">删除</a>--%>
+									<a id="${product.key.name}" name="deleteProduct"
+									   href="<%=basePath%>/backstage/product/doDeleteProduct?id=${product.key.id}" class="tablelink"> 删除</a>
 					</span>
 							</div>
 						</c:forEach>

@@ -14,10 +14,10 @@ body {
 	text-align: right;
 	line-height: 28px;
 	padding-right: 200px;
-	background-color: #e3e3e2;
+	background-color: #72864b;
 }
 .header .toolbar a {
-	color: #000;
+	color: #FFFFFF;
 	margin-right: 10px;
 	text-decoration: none;
 }
@@ -35,7 +35,7 @@ body {
 	height: 44px;
 	width: 600px;
 	margin: 20px 0;
-	border: 3px solid #d2364c;
+	border: 3px solid #dccb56;
 }
 .header .content .search-wrap input {
 	width: 495px;
@@ -49,12 +49,12 @@ body {
 	height: 44px;
 	border: none;
 	width: 100px;
-	background-color: #d2364c;
+	background-color: #dccb56;
 }
 .header .menu {
 	height: 47px;
 	padding-left: 25px;
-	border-bottom: 3px solid #d2364c;
+	border-bottom: 3px solid #dccb56;
 }
 .header .menu li {
 	float: left;
@@ -76,7 +76,7 @@ body {
 	color: #fff;
 	width: 255px;
 	margin-left: -1px;
-	background-color: #d2364c;
+	background-color: #72864b;
 }
 .header .menu li.cur a {
 	color: #fff;
@@ -85,5 +85,5 @@ body {
 	border-left: none;
 }
 .menu li a:hover{
-	color:#d2364c;
+	color:#dccb56;
 }

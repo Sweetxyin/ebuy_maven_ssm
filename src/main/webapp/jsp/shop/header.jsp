@@ -9,6 +9,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>橙汁园餐厅 -- 页头</title>
 <link href="resources/css/header.css" rel="stylesheet" type="text/css">
+	<style>
+		.toolbar{
+			background: #72864b;
+		}
+		.toolbar>a{
+			color: #f0f9fd;
+		}
+	</style>
 </head>
 <body>
 	<div class="header">
@@ -24,7 +32,7 @@
 				</c:otherwise>
 			</c:choose>
 
-			<a href="<%=basePath%>shop/shopcart.jsp" target="top">&nbsp;购物车&nbsp;</a>
+			<a href="<%=basePath%>shop/ShopCart" target="top">&nbsp;购物车&nbsp;</a>
 		</div>
 		<div class="content">
 			<img alt="" src="resources/images/logo.png">

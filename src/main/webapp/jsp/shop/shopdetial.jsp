@@ -16,6 +16,12 @@
     });
 
 </script>
+<style>
+	.item{
+		text-decoration: none;
+		color: #f0f9fd;
+	}
+</style>
 <body>
 	<div class="wrap">
 		<iframe src="<%=basePath%>jsp/shop/header.jsp" style="height: 168px;"></iframe>

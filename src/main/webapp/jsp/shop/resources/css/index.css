@@ -61,7 +61,7 @@ body {
 .wrap .content .block .title {
 	margin: 0 25px;
 	line-height: 31px;
-	border-bottom: 3px solid #d2364c;
+	border-bottom: 3px solid #c8be88;
 }
 .wrap .content .block .title.noborder {
 	border-bottom-color: #fff;
@@ -117,7 +117,7 @@ body {
 	height: 275px;
 	padding: 10px;
 	display: inline-block;
-	border: 1px solid #a94442;
+	border: 1px solid #c8be88;
 	margin: 8px 15px 0 15px;
 }
 .wrap .content .block .block-wrap.border .item {

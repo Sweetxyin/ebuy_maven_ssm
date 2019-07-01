@@ -17,7 +17,7 @@
 			height: 275px;
 			padding: 10px;
 			display: inline-block;
-			border: 1px solid #a94442;
+			border: 1px solid #cbbb80;
 			margin: 8px 15px 0 15px;
 		}
 	</style>

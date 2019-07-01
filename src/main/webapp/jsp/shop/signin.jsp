@@ -60,7 +60,7 @@
 		<div class="title">
 			<a href="<%=basePath%>shop/index">&nbsp;首页&nbsp;</a>
 			<a href="<%=basePath%>shop/toSignin">&nbsp;登录/注册&nbsp;</a>
-			<a href="shopcart.html">&nbsp;购物车&nbsp;</a>
+			<a href="<%=basePath%>shop/ShopCart">&nbsp;购物车&nbsp;</a>
 		</div>
 		<div class="main">
 			<div class="header">
