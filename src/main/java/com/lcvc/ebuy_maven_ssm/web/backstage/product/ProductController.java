@@ -74,7 +74,7 @@ public class ProductController {
 	//跳转到产品管理修改页面
 	@RequestMapping(value = "/backstage/product/toUpdateProduct", method = RequestMethod.GET)
 	public String toUpdateProduct(Model model,Integer id) {
-		model.addAttribute("list",productTypeService.getProductTypeList());
+		model.addAttribute("productType",productTypeService.getProductTypeList());
 		model.addAttribute("product",productService.getProduct(id));
 		return "/jsp/backstage/product/productupdate.jsp";
 	}
