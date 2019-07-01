@@ -17,7 +17,7 @@
 
 </script>
 <style>
-	.item{
+	.item1{
 		text-decoration: none;
 		color: #f0f9fd;
 	}
@@ -54,6 +54,7 @@
 							<ul>
 								<li class="hot">优惠活动：11:30-14:30点餐7折</li>
 								<li>促销价：<em class="hot">${requestScope.product.price}</em></li>
+
 								<li>
 									<div class="item-wrap">
 										<div class="item">原价：<span>${product.originalPrice}</span></div>
@@ -83,7 +84,7 @@
 											<%--<button class="buy">立刻购买</button>
 											<button class="add">加入购物车</button>--%>
 												<button class="buy" disabled="true">立刻购买</button>
-												<button name="putCart" class="add"><a class="item" href="<%=basePath%>shop/toShopCart?id=${product.id}&number=1">加入购物车</a></button>
+												<button name="putCart" class="add"><a class="item1" href="<%=basePath%>shop/toShopCart?id=${product.id}&number=1">加入购物车</a></button>
 										</div>
 									</form>
 								</li>

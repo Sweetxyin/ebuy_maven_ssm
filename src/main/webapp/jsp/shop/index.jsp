@@ -20,16 +20,20 @@
 			border: 1px solid #cbbb80;
 			margin: 8px 15px 0 15px;
 		}
+		.logo{
+			background-color: rgba(0, 0, 0, 0.6);
+		width: 100%;
+		}
 	</style>
 
 </head>
 <body>
 	<div class="wrap">
 		<iframe src="<%=basePath%>jsp/shop/header.jsp" style="height: 168px;"></iframe>
-		<div class="content ">
-			<div class="logo ">
+		<div class="content">
+			<div class="logo container-fluid " >
 				<%--<img alt="" src="<%=basePath%>jsp/shop/resources/images/index-logo.jpg">--%>
-					<div id="myCarousel" class="carousel slide container-fluid">
+					<div id="myCarousel" class="carousel slide ">
 						<!-- 轮播（Carousel）指标 -->
 						<ol class="carousel-indicators">
 							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -38,21 +42,21 @@
 						</ol>
 						<!-- 轮播（Carousel）项目 -->
 						<div class="carousel-inner">
-							<div class="item active">
-								<img src="<%=basePath%>jsp/shop/resources/images/bg3.jpg" alt="First slide">
+							<div class="item active" id="bg">
+								<img src="<%=basePath%>jsp/shop/resources/images/1.jpeg"   alt="First slide">
 							</div>
 							<div class="item">
-								<img src="<%=basePath%>jsp/shop/resources/images/bg2.jpg" alt="Second slide">
+								<img src="<%=basePath%>jsp/shop/resources/images/2.jpeg"  alt="Second slide">
 							</div>
 							<div class="item">
-								<img src="<%=basePath%>jsp/shop/resources/images/bg1.jpg" alt="Third slide">
+								<img src="<%=basePath%>jsp/shop/resources/images/3.jpeg "   alt="Third slide">
 							</div>
 						</div>
 						<!-- 轮播（Carousel）导航 -->
 						<a class="carousel-control left" href="#myCarousel"
-						   data-slide="prev"> <span _ngcontent-c3="" aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span></a>
+						   data-slide="prev"> <span _ngcontent-c3="" aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span></a>
 						<a class="carousel-control right" href="#myCarousel"
-						   data-slide="next">&rsaquo;</a>
+						   data-slide="next"><span _ngcontent-c3="" aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span></a>
 					</div>
 
 

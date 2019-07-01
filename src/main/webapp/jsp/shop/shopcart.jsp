@@ -46,7 +46,7 @@
                         function (data) {
                             if(data.status==1){
                                 //alert("删除成功");
-                                $this.parent().remove();
+                                $this.parent().parent().remove();
                             }
                         }
                     );

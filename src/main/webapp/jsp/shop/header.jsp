@@ -10,6 +10,9 @@
 <title>橙汁园餐厅 -- 页头</title>
 <link href="resources/css/header.css" rel="stylesheet" type="text/css">
 	<style>
+		.header{
+			width: 100%;
+		}
 		.toolbar{
 			background: #72864b;
 		}
