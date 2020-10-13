@@ -40,7 +40,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>4.13.1</version>
       <scope>test</scope>
     </dependency>
 
@@ -189,7 +189,7 @@
       <dependency>
           <groupId>junit</groupId>
           <artifactId>junit</artifactId>
-          <version>RELEASE</version>
+          <version>4.13.1</version>
       </dependency>
       <!--————————————————————引入mybatis包和mybatis针对spring的支持包（上面）————————————————————-->
 
